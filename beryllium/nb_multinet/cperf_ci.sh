@@ -38,7 +38,7 @@ python3.4 $NSTAT_WORKSPACE/stress_test/nstat_orchestrator.py \
      --test=$TEST_TYPE \
      --ctrl-base-dir=$NSTAT_WORKSPACE/controllers/odl_beryllium_pb/ \
      --sb-generator-base-dir=$NSTAT_WORKSPACE/emulators/mt_cbench/ \
-     --json-config=$NSTAT_WORKSPACE/stress_test/sample_test_confs/beryllium/$CONFIG_FILENAME.json \
+     --json-config=$NSTAT_WORKSPACE/$CONFIG_FILENAME.json \
      --json-output=$NSTAT_WORKSPACE/${CONFIG_FILENAME}_results.json \
      --html-report=$NSTAT_WORKSPACE/report.html \
      --output-dir=$NSTAT_WORKSPACE/$RESULTS_DIR/"
