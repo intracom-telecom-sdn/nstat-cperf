@@ -24,14 +24,14 @@ echo 'CONFIG_FILENAME: '$CONFIG_FILENAME
 echo '-------------------------------------------------------------------------'
 
 mkdir $DOCKER_WORKSPACE
-wget -O $DOCKER_WORKSPACE/docker-compose.yml  https://raw.githubusercontent.com/intracom-telecom-sdn/nstat-cperf/master/boron/mtcbench/docker-compose.yml
+wget -O $DOCKER_WORKSPACE/docker-compose.yml  https://raw.githubusercontent.com/intracom-telecom-sdn/nstat-cperf/master/beryllium/mtcbench/docker-compose.yml
 cd $DOCKER_WORKSPACE
 
 sudo docker pull intracom/nstat
 
 docker-compose up -d
 
-for container_id in nstat controller mtcbench
+for container_id in nstat controller mn-01 mn-02
 do
     docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE && \
         cd /opt && \
@@ -43,9 +43,9 @@ docker cp $CONFIG_FILENAME.json nstat:$NSTAT_WORKSPACE
 docker exec -i nstat /bin/bash -c "export PYTHONPATH=$NSTAT_WORKSPACE;source /opt/venv_nstat/bin/activate; \
 python3.4 $NSTAT_WORKSPACE/stress_test/nstat_orchestrator.py \
      --test=$TEST_TYPE \
-     --ctrl-base-dir=$NSTAT_WORKSPACE/controllers/odl_boron_pb/ \
+     --ctrl-base-dir=$NSTAT_WORKSPACE/controllers/odl_beryllium_pb/ \
      --sb-generator-base-dir=$NSTAT_WORKSPACE/emulators/mt_cbench/ \
-     --json-config=$NSTAT_WORKSPACE/stress_test/sample_test_confs/boron/$CONFIG_FILENAME.json \
+     --json-config=$NSTAT_WORKSPACE/stress_test/sample_test_confs/beryllium/$CONFIG_FILENAME.json \
      --json-output=$NSTAT_WORKSPACE/${CONFIG_FILENAME}_results.json \
      --html-report=$NSTAT_WORKSPACE/report.html \
      --output-dir=$NSTAT_WORKSPACE/$RESULTS_DIR/"

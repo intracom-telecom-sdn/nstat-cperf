@@ -31,7 +31,7 @@ sudo docker pull intracom/nstat
 
 docker-compose up -d
 
-for container_id in nstat controller mtcbench
+for container_id in nstat controller mn-01 mn-02
 do
     docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE && \
         cd /opt && \
