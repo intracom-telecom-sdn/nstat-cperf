@@ -13,7 +13,6 @@
 TEST_FILE=$1
 CONFIG_FILENAME=`echo "$TEST_FILE" | cut -d'.' -f1`
 NSTAT_WORKSPACE=/opt/nstat
-DOCKER_WORKSPACE=/opt/nstat
 RESULTS_DIR=$CONFIG_FILENAME"_results_"
 
 TMP=${CONFIG_FILENAME#*_*_}
@@ -23,15 +22,11 @@ echo 'TEST TYPE      : '$TEST_TYPE
 echo 'CONFIG_FILENAME: '$CONFIG_FILENAME
 echo '-------------------------------------------------------------------------'
 
-mkdir $DOCKER_WORKSPACE
-wget -O $DOCKER_WORKSPACE/docker-compose.yml  https://raw.githubusercontent.com/intracom-telecom-sdn/nstat-cperf/master/beryllium/mtcbench/docker-compose.yml
-cd $DOCKER_WORKSPACE
-
 sudo docker pull intracom/nstat
 
 docker-compose up -d
 
-for container_id in nstat controller mtcbench
+for container_id in nstat controller mn-01 mn-02
 do
     docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE && \
         cd /opt && \
