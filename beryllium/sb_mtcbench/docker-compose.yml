@@ -8,7 +8,7 @@ services:
     hostname: nstat-node
     networks:
       nstat_net:
-        ipv4_address: 10.0.1.10
+        ipv4_address: 172.17.0.10
 
   controller:
     image: intracom/nstat:cntrlpb
@@ -19,7 +19,7 @@ services:
       - nstat
     networks:
       nstat_net:
-        ipv4_address: 10.0.1.11
+        ipv4_address: 172.17.0.11
 
   mtcbench:
     image: intracom/nstat:cntrlpb
@@ -30,7 +30,7 @@ services:
       - nstat
     networks:
       nstat_net:
-        ipv4_address: 10.0.1.12
+        ipv4_address: 172.17.0.12
 
 networks:
   nstat_net:
@@ -38,5 +38,5 @@ networks:
     ipam:
       driver: default
       config:
-      - subnet: 10.0.1.0/24
-        gateway: 10.0.1.1
+      - subnet: 172.17.0.0/24
+        gateway: 172.17.0.1
