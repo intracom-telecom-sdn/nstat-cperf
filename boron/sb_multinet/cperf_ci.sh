@@ -28,7 +28,7 @@ for container_id in nstat controller mn-01 mn-02
 do
     docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE && \
         cd /opt && \
-        git clone https://github.com/intracom-telecom-sdn/nstat.git -b master"
+        git clone https://github.com/intracom-telecom-sdn/nstat.git -b fnctl-ci-tests"
 done
 
 docker cp $CONFIG_FILENAME.json nstat:$NSTAT_WORKSPACE
@@ -37,7 +37,7 @@ docker exec -i nstat /bin/bash -c "export PYTHONPATH=$NSTAT_WORKSPACE;source /op
 python3.4 $NSTAT_WORKSPACE/stress_test/nstat_orchestrator.py \
      --test=$TEST_TYPE \
      --ctrl-base-dir=$NSTAT_WORKSPACE/controllers/odl_boron_pb/ \
-     --sb-generator-base-dir=$NSTAT_WORKSPACE/emulators/mt_cbench/ \
+     --sb-generator-base-dir=$NSTAT_WORKSPACE/emulators/multinet/ \
      --json-config=$NSTAT_WORKSPACE/$CONFIG_FILENAME.json \
      --json-output=$NSTAT_WORKSPACE/${CONFIG_FILENAME}_results.json \
      --html-report=$NSTAT_WORKSPACE/report.html \
