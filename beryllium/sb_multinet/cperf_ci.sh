@@ -15,13 +15,13 @@ CONFIG_FILENAME=`echo "$TEST_FILE" | cut -d'.' -f1`
 NSTAT_WORKSPACE=/opt/nstat
 RESULTS_DIR=$CONFIG_FILENAME"_results"
 
-TMP=${CONFIG_FILENAME#*_*_}
+TMP=${CONFIG_FILENAME#*_}
 TEST_TYPE=${TMP%.*}
 echo '-------------------------------------------------------------------------'
 echo 'TEST TYPE      : '$TEST_TYPE
 echo 'CONFIG_FILENAME: '$CONFIG_FILENAME
 echo '-------------------------------------------------------------------------'
-
+exit
 docker-compose up -d
 
 for container_id in nstat controller mn-01 mn-02
