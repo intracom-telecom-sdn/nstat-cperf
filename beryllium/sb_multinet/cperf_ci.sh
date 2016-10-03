@@ -28,7 +28,8 @@ for container_id in nstat controller mn-01 mn-02
 do
     docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE && \
         cd /opt && \
-        git clone https://github.com/intracom-telecom-sdn/nstat.git -b fnctl-ci-tests"
+        git clone https://github.com/intracom-telecom-sdn/nstat.git -b fnctl-ci-tests && \
+        service  openvswitch-switch start"
 done
 
 docker cp $CONFIG_FILENAME.json nstat:$NSTAT_WORKSPACE
