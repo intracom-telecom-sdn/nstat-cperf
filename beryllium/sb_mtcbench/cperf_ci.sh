@@ -24,7 +24,7 @@ echo '-------------------------------------------------------------------------'
 
 docker-compose up -d
 
-for container_id in nstat controller mtcbench
+for container_id in $(docker ps | awk 'FNR > 1 {print $NF}')
 do
     docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE && \
         cd /opt && \

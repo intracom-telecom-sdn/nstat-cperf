@@ -24,15 +24,15 @@ echo '-------------------------------------------------------------------------'
 
 docker-compose up -d
 
-for container_id in nstat controller mn-01 mn-02
+for container_id in $(docker ps | awk 'FNR > 1 {print $NF}')
 do
     docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE && \
         cd /opt && \
         git clone https://github.com/intracom-telecom-sdn/nstat.git -b master
-    if   [ "$container_id" == "mn-01" ] || [ "$container_id" == "mn-02" ] ; then
-	    echo "$container_id"
-		service  openvswitch-switch start"
-	fi
+    if [ "$(docker ps | grep " $container_id" | awk -F":" '{print $2}' | awk '{print $1}')" == "multinet" ]
+    then
+        service  openvswitch-switch start"
+    fi
 done
 
 docker cp $CONFIG_FILENAME.json nstat:$NSTAT_WORKSPACE
