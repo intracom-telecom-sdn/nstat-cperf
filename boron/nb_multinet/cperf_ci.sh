@@ -28,7 +28,11 @@ for container_id in nstat controller nbgen mn-01 mn-02
 do
     docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE && \
         cd /opt && \
-        git clone https://github.com/intracom-telecom-sdn/nstat.git -b fnctl-ci-tests"
+        git clone https://github.com/intracom-telecom-sdn/nstat.git -b master
+    if   [ "$container_id" == "mn-01" ] || [ "$container_id" == "mn-02" ] ; then
+	    echo "$container_id"
+		service  openvswitch-switch start"
+	fi
 done
 
 docker cp $CONFIG_FILENAME.json nstat:$NSTAT_WORKSPACE
