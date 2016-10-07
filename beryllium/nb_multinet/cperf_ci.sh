@@ -31,7 +31,7 @@ do
         git clone https://github.com/intracom-telecom-sdn/nstat.git -b master
     if [ "$(docker ps | grep " $container_id" | awk -F":" '{print $2}' | awk '{print $1}')" == "multinet" ]
     then
-        service  openvswitch-switch start"
+        service  openvswitch-switch start
     fi
 done
 
