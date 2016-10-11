@@ -15,7 +15,7 @@ CONFIG_FILENAME=`echo "$TEST_FILE" | cut -d'.' -f1`
 NSTAT_WORKSPACE=/opt/nstat
 RESULTS_DIR=$CONFIG_FILENAME"_results"
 
-TMP=${CONFIG_FILENAME#*_*_}
+TMP=${CONFIG_FILENAME#*_}
 TEST_TYPE=${TMP%.*}
 echo '-------------------------------------------------------------------------'
 echo 'TEST TYPE      : '$TEST_TYPE
@@ -24,15 +24,14 @@ echo '-------------------------------------------------------------------------'
 
 docker-compose up -d
 
-for container_id in $(docker ps | awk 'FNR > 1 {print $NF}')
+for container_id in nstat controller nb-gen mn-01 mn-02
 do
     docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE && \
         cd /opt && \
-        git clone https://github.com/intracom-telecom-sdn/nstat.git -b master
-    if [ "$(docker ps | grep " $container_id" | awk -F":" '{print $2}' | awk '{print $1}')" == "multinet" ]
-    then
-        service  openvswitch-switch start
-    fi
+        git clone https://github.com/intracom-telecom-sdn/nstat.git -b nstat-testing && \
+    if [ "$container_id" == "mn-01" ] || [ "$container_id" == "mn-02" ] ; then
+        service openvswitch-switch start
+    fi"
 done
 
 docker cp $CONFIG_FILENAME.json nstat:$NSTAT_WORKSPACE
@@ -42,7 +41,7 @@ python3.4 $NSTAT_WORKSPACE/stress_test/nstat_orchestrator.py \
      --test=$TEST_TYPE \
      --ctrl-base-dir=$NSTAT_WORKSPACE/controllers/odl_boron_pb/ \
      --sb-generator-base-dir=$NSTAT_WORKSPACE/emulators/multinet/ \
-     --nb-generator-base-dir=$NSTAT_WORKSPACE/emulators/nb_generator/
+     --nb-generator-base-dir=$NSTAT_WORKSPACE/emulators/nb_generator/ \
      --json-config=$NSTAT_WORKSPACE/$CONFIG_FILENAME.json \
      --json-output=$NSTAT_WORKSPACE/${CONFIG_FILENAME}_results.json \
      --html-report=$NSTAT_WORKSPACE/report.html \

@@ -15,7 +15,7 @@ CONFIG_FILENAME=`echo "$TEST_FILE" | cut -d'.' -f1`
 NSTAT_WORKSPACE=/opt/nstat
 RESULTS_DIR=$CONFIG_FILENAME"_results"
 
-TMP=${CONFIG_FILENAME#*_*_}
+TMP=${CONFIG_FILENAME#*_}
 TEST_TYPE=${TMP%.*}
 echo '-------------------------------------------------------------------------'
 echo 'TEST TYPE      : '$TEST_TYPE
@@ -28,11 +28,10 @@ for container_id in nstat controller nb-gen mn-01 mn-02
 do
     docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE && \
         cd /opt && \
-        git clone https://github.com/intracom-telecom-sdn/nstat.git -b master
-    if [ "$(docker ps | grep " $container_id" | awk -F":" '{print $2}' | awk '{print $1}')" == "multinet" ]
-    then
-        service  openvswitch-switch start
-    fi
+        git clone https://github.com/intracom-telecom-sdn/nstat.git -b nstat-testing && \
+    if [ "$container_id" == "mn-01" ] || [ "$container_id" == "mn-02" ] ; then
+        service openvswitch-switch start
+    fi"
 done
 
 docker cp $CONFIG_FILENAME.json nstat:$NSTAT_WORKSPACE

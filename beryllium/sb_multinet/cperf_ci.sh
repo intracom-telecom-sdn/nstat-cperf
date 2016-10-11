@@ -34,8 +34,6 @@ do
     fi"
 done
 
-
-
 docker cp $CONFIG_FILENAME.json nstat:$NSTAT_WORKSPACE
 
 docker exec -i nstat /bin/bash -c "export PYTHONPATH=$NSTAT_WORKSPACE;source /opt/venv_nstat/bin/activate; \
