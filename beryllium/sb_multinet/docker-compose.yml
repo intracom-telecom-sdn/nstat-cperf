@@ -22,7 +22,7 @@ services:
         ipv4_address: 10.0.1.11
 
   mn01:
-    image: intracom/proxy:multinet
+    image: intracom/multinet:proxy
     privileged: true
     container_name: mn-01
     hostname: mn01-node
@@ -33,7 +33,7 @@ services:
         ipv4_address: 10.0.1.12
 
   mn02:
-    image: intracom/proxy:multinet
+    image: intracom/multinet:proxy
     privileged: true
     container_name: mn-02
     hostname: mn02-node
