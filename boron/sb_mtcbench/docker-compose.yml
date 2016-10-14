@@ -2,7 +2,7 @@ version: '2'
 
 services:
   nstat:
-    image: intracom/nstat
+    image: intracom/nstat:proxy
     privileged: true
     container_name: nstat
     hostname: nstat-node
@@ -11,7 +11,7 @@ services:
         ipv4_address: 10.0.1.10
 
   controller:
-    image: intracom/nstat
+    image: intracom/nstat:controller_pb_proxy
     privileged: true
     container_name: controller
     hostname: ctrl-node
@@ -22,7 +22,7 @@ services:
         ipv4_address: 10.0.1.11
 
   mtcbench:
-    image: intracom/nstat
+    image: intracom/mtcbench:proxy
     privileged: true
     container_name: mtcbench
     hostname: mtcbench-node

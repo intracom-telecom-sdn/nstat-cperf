@@ -2,7 +2,7 @@ version: '2'
 
 services:
   nstat:
-    image: intracom/nstat:cntrlpb
+    image: intracom/nstat:proxy
     privileged: true
     container_name: nstat
     hostname: nstat-node
@@ -22,7 +22,7 @@ services:
         ipv4_address: 10.0.1.11
 
   mn01:
-    image: intracom/nstat:cntrlpb
+    image: intracom/proxy:multinet
     privileged: true
     container_name: mn-01
     hostname: mn01-node
@@ -33,7 +33,7 @@ services:
         ipv4_address: 10.0.1.12
 
   mn02:
-    image: intracom/nstat:cntrlpb
+    image: intracom/proxy:multinet
     privileged: true
     container_name: mn-02
     hostname: mn02-node
