@@ -2,7 +2,7 @@ version: '2'
 
 services:
   nstat:
-    image: intracom/nstat
+    image: intracom/nstat:proxy
     privileged: true
     container_name: nstat
     hostname: nstat-node

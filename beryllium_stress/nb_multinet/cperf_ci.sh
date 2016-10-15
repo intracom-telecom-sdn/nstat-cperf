@@ -24,7 +24,7 @@ echo '-------------------------------------------------------------------------'
 
 docker-compose up -d
 
-for container_id in nstat controller nb-gen mn-01 mn-02
+for container_id in nstat controller nbgen mn-01 mn-02
 do
     docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE && \
         cd /opt && \
@@ -39,7 +39,7 @@ docker cp $CONFIG_FILENAME.json nstat:$NSTAT_WORKSPACE
 docker exec -i nstat /bin/bash -c "export PYTHONPATH=$NSTAT_WORKSPACE;source /opt/venv_nstat/bin/activate; \
 python3.4 $NSTAT_WORKSPACE/stress_test/nstat_orchestrator.py \
      --test=$TEST_TYPE \
-     --ctrl-base-dir=$NSTAT_WORKSPACE/controllers/odl_boron_pb/ \
+     --ctrl-base-dir=$NSTAT_WORKSPACE/controllers/odl_beryllium_pb/ \
      --sb-generator-base-dir=$NSTAT_WORKSPACE/emulators/multinet/ \
      --nb-generator-base-dir=$NSTAT_WORKSPACE/emulators/nb_generator/ \
      --json-config=$NSTAT_WORKSPACE/$CONFIG_FILENAME.json \

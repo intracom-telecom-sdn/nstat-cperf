@@ -28,7 +28,7 @@ for container_id in nstat controller mtcbench
 do
     docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE && \
         cd /opt && \
-        git clone https://github.com/intracom-telecom-sdn/nstat.git -b master"
+        git clone https://github.com/intracom-telecom-sdn/nstat.git -b nstat-testing"
 done
 
 docker cp $CONFIG_FILENAME.json nstat:$NSTAT_WORKSPACE
