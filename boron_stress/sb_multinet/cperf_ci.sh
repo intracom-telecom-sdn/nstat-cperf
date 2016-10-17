@@ -16,11 +16,14 @@ NSTAT_WORKSPACE=/opt/nstat
 RESULTS_DIR=$CONFIG_FILENAME"_results"
 
 TMP=${CONFIG_FILENAME#*_}
-TEST_TYPE=${TMP%.*}
+#TEST_TYPE=${TMP%}
+TEST_TYPE=${TMP%_*}
+
 echo '-------------------------------------------------------------------------'
 echo 'TEST TYPE      : '$TEST_TYPE
 echo 'CONFIG_FILENAME: '$CONFIG_FILENAME
 echo '-------------------------------------------------------------------------'
+exit
 
 docker-compose up -d
 
@@ -29,7 +32,7 @@ do
     docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE && \
         cd /opt && \
         git clone https://github.com/intracom-telecom-sdn/nstat.git -b nstat-testing && \
-    if [ "$container_id" == "mn-01" ] || [ "$container_id" == "mn-02" ] || [ "$container_id" == "mn-03" ] || [ "$container_id" == "mn-04" ] || [ "$container_id" == "mn-05" ] || [ "$container_id" == "mn-06" ] || [ "$container_id" == "mn-07" ] || [ "$container_id" == "mn-08" ] || [ "$container_id" == "mn-09" ] || [ "$container_id" == "mn-10" ] || [ "$container_id" == "mn-11" ] || [ "$container_id" == "mn-12" ] || [ "$container_id" == "mn-13" ] || [ "$container_id" == "mn-14" ] || [ "$container_id" == "mn-15" ] || [ "$container_id" == "mn-16" ]; then
+    if [ "$container_id" == "mn-01" ] || [ "$container_id" == "mn-02" ] || [ "$container_id" == "mn-03" ] || [ "$container_id" == "mn-04" ] || [ "$container_id" == "mn-05" ] || [ "$container_id" == "mn-06" ] || [ "$container_id" == "mn-07" ] || [ "$container_id" == "mn-08" ] || [ "$container_id" == "mn-09" ] || [ "$container_id" == "mn-10" ] || [ "$container_id" == "mn-11" ] || [ "$container_id" == "mn-12" ] || [ "$container_id" == "mn-13" ] || [ "$container_id" == "mn-14" ] || [ "$container_id" == "mn-15" ] || [ "$container_id" == "mn-16" ] ; then
         service openvswitch-switch start
     fi"
 done
