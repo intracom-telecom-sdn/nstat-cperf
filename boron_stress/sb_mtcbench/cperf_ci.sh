@@ -23,7 +23,7 @@ echo '-------------------------------------------------------------------------'
 echo 'TEST TYPE      : '$TEST_TYPE
 echo 'CONFIG_FILENAME: '$CONFIG_FILENAME
 echo '-------------------------------------------------------------------------'
-exit
+
 docker-compose up -d
 
 for container_id in nstat controller mtcbench
