@@ -29,7 +29,7 @@
 "controller_persistent_handler":"change_persistence.py",
 "controller_flowmods_conf_handler":"flowmods_configure.py",
 
-"controller_logs_dir":"./distribution-karaf-0.4.0-Beryllium/data/log/",
+"controller_logs_dir":"distribution-karaf-0.4.0-Beryllium/data/log/",
 
 "controller_rebuild":true,
 "controller_cleanup":false,
@@ -56,8 +56,8 @@
 "topology_group_delay_ms":[3000],
 
 
-"multinet_clean_handler":"./clean.sh",
-"multinet_build_handler":"./build.sh",
+"multinet_clean_handler":"clean.sh",
+"multinet_build_handler":"build.sh",
 
 "multinet_worker_ip_list":["10.0.1.12", "10.0.1.13", "10.0.1.14", "10.0.1.15", "10.0.1.16", "10.0.1.17", "10.0.1.18", "10.0.1.19", "10.0.1.20", "10.0.1.21", "10.0.1.22", "10.0.1.23", "10.0.1.24", "10.0.1.25", "10.0.1.26", "10.0.1.27"],
 "multinet_worker_port_list":[3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333],
