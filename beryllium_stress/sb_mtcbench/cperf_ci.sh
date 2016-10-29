@@ -16,8 +16,8 @@ NSTAT_WORKSPACE=/opt/nstat
 RESULTS_DIR=$CONFIG_FILENAME"_results"
 
 TMP=${CONFIG_FILENAME#*_*_}
-#TEST_TYPE=${TMP%.*}
-TEST_TYPE=${TMP%_*_*_*_*}
+TEST_TYPE=${TMP%.*}
+#TEST_TYPE=${TMP%_*_*_*_*}
 
 echo '-------------------------------------------------------------------------'
 echo 'TEST TYPE      : '$TEST_TYPE
