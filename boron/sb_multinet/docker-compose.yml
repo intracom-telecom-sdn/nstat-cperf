@@ -9,6 +9,10 @@ services:
     networks:
       nstat_net:
         ipv4_address: 10.0.1.10
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
 
   controller:
     image: intracom/nstat:controller_pb_proxy
@@ -20,6 +24,10 @@ services:
     networks:
       nstat_net:
         ipv4_address: 10.0.1.11
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
 
   mn01:
     image: intracom/multinet:proxy
@@ -31,6 +39,10 @@ services:
     networks:
       nstat_net:
         ipv4_address: 10.0.1.12
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
 
   mn02:
     image: intracom/multinet:proxy
@@ -42,6 +54,10 @@ services:
     networks:
       nstat_net:
         ipv4_address: 10.0.1.13
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
 
 networks:
   nstat_net:
