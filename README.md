@@ -3,7 +3,7 @@
 ## Overview
 The repository contains scripts for automatically running....
 
-### Essential tools
+## Essential tools
 
 - docker (v.1.12.1 or later)
 - docker-compose (v.1.8.0 or later)
