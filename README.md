@@ -38,6 +38,14 @@ sudo gpasswd -a ${USER} docker
 ```bash
 sudo service docker restart
 ```
+-  Step 4
+
+```yaml
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
+```
 
 ## Run the tests
 
