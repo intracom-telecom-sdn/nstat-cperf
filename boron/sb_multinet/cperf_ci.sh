@@ -47,4 +47,4 @@ python3.4 $NSTAT_WORKSPACE/stress_test/nstat_orchestrator.py \
      --output-dir=$NSTAT_WORKSPACE/$RESULTS_DIR/"
 
 docker cp nstat:$NSTAT_WORKSPACE/$RESULTS_DIR .
-docker-compose down
+#docker-compose down
