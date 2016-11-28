@@ -8,7 +8,7 @@ services:
     hostname: nstat-node
     networks:
       nstat_net:
-        ipv4_address: 10.0.2.10
+        ipv4_address: 10.0.1.10
     ulimits:
       nofile:
         soft: 1000000
@@ -23,7 +23,7 @@ services:
       - nstat
     networks:
       nstat_net:
-        ipv4_address: 10.0.2.11
+        ipv4_address: 10.0.1.11
     ulimits:
       nofile:
         soft: 1000000
@@ -38,7 +38,7 @@ services:
       - nstat
     networks:
       nstat_net:
-        ipv4_address: 10.0.2.12
+        ipv4_address: 10.0.1.12
     ulimits:
       nofile:
         soft: 1000000
@@ -53,7 +53,7 @@ services:
       - nstat
     networks:
       nstat_net:
-        ipv4_address: 10.0.2.13
+        ipv4_address: 10.0.1.13
     ulimits:
       nofile:
         soft: 1000000
@@ -68,7 +68,7 @@ services:
       - nstat
     networks:
       nstat_net:
-        ipv4_address: 10.0.2.14
+        ipv4_address: 10.0.1.14
     ulimits:
       nofile:
         soft: 1000000
@@ -83,7 +83,7 @@ services:
       - nstat
     networks:
       nstat_net:
-        ipv4_address: 10.0.2.15
+        ipv4_address: 10.0.1.15
     ulimits:
       nofile:
         soft: 1000000
@@ -98,7 +98,7 @@ services:
       - nstat
     networks:
       nstat_net:
-        ipv4_address: 10.0.2.16
+        ipv4_address: 10.0.1.16
     ulimits:
       nofile:
         soft: 1000000
@@ -113,7 +113,7 @@ services:
       - nstat
     networks:
       nstat_net:
-        ipv4_address: 10.0.2.17
+        ipv4_address: 10.0.1.17
     ulimits:
       nofile:
         soft: 1000000
@@ -128,7 +128,7 @@ services:
       - nstat
     networks:
       nstat_net:
-        ipv4_address: 10.0.2.18
+        ipv4_address: 10.0.1.18
     ulimits:
       nofile:
         soft: 1000000
@@ -143,7 +143,7 @@ services:
       - nstat
     networks:
       nstat_net:
-        ipv4_address: 10.0.2.19
+        ipv4_address: 10.0.1.19
     ulimits:
       nofile:
         soft: 1000000
@@ -158,7 +158,7 @@ services:
       - nstat
     networks:
       nstat_net:
-        ipv4_address: 10.0.2.20
+        ipv4_address: 10.0.1.20
     ulimits:
       nofile:
         soft: 1000000
@@ -173,7 +173,7 @@ services:
       - nstat
     networks:
       nstat_net:
-        ipv4_address: 10.0.2.21
+        ipv4_address: 10.0.1.21
     ulimits:
       nofile:
         soft: 1000000
@@ -188,7 +188,7 @@ services:
       - nstat
     networks:
       nstat_net:
-        ipv4_address: 10.0.2.22
+        ipv4_address: 10.0.1.22
     ulimits:
       nofile:
         soft: 1000000
@@ -203,7 +203,7 @@ services:
       - nstat
     networks:
       nstat_net:
-        ipv4_address: 10.0.2.23
+        ipv4_address: 10.0.1.23
     ulimits:
       nofile:
         soft: 1000000
@@ -218,7 +218,7 @@ services:
       - nstat
     networks:
       nstat_net:
-        ipv4_address: 10.0.2.24
+        ipv4_address: 10.0.1.24
     ulimits:
       nofile:
         soft: 1000000
@@ -233,7 +233,7 @@ services:
       - nstat
     networks:
       nstat_net:
-        ipv4_address: 10.0.2.25
+        ipv4_address: 10.0.1.25
     ulimits:
       nofile:
         soft: 1000000
@@ -248,7 +248,7 @@ services:
       - nstat
     networks:
       nstat_net:
-        ipv4_address: 10.0.2.26
+        ipv4_address: 10.0.1.26
     ulimits:
       nofile:
         soft: 1000000
@@ -263,7 +263,7 @@ services:
       - nstat
     networks:
       nstat_net:
-        ipv4_address: 10.0.2.27
+        ipv4_address: 10.0.1.27
     ulimits:
       nofile:
         soft: 1000000
@@ -275,5 +275,5 @@ networks:
     ipam:
       driver: default
       config:
-      - subnet: 10.0.2.0/24
-        gateway: 10.0.2.1
+      - subnet: 10.0.1.0/24
+        gateway: 10.0.1.1
