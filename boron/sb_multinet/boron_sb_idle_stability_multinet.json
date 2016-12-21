@@ -31,7 +31,7 @@
 "controller_restconf_port":8181,
 "controller_restconf_user":"admin",
 "controller_restconf_password":"admin",
-"controller_statistics_period_ms":5000,
+"controller_statistics_period_ms":2000,
 "controller_cpu_shares":100,
 
 "topology_rest_server_boot":"bin/deploy",
@@ -57,11 +57,11 @@
 "multinet_worker_port_list":[3333, 3333],
 "multinet_switch_type":"ovsk",
 
-"oftraf_test_interval_ms":10000,
+"oftraf_test_interval_ms":20000,
 "oftraf_rest_server_port":5555,
 
 
-"number_of_samples":150,
+"number_of_samples":50,
 
 "java_opts":["-Xmx2G","-Xms2G","-XX:+UseG1GC","-XX:MaxPermSize=512M"],
 
