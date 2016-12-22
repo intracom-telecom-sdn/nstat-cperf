@@ -24,7 +24,7 @@ echo '-------------------------------------------------------------------------'
 
 docker-compose up -d
 
-for container_id in nstat controller nbgen mn-01 mn-02 mn-03 mn-04 mn-05 mn-06 mn-07 mn-08 mn-09 mn-10 mn-11 mn-12 mn-13 mn-14 mn-15 mn-16
+for container_id in nstat controller nbgen mn-01 mn-02
 do
     docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE && \
         cd /opt && \
