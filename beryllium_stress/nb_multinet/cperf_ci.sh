@@ -28,7 +28,7 @@ for container_id in nstat controller nbgen mn-01 mn-02 mn-03 mn-04 mn-05 mn-06 m
 do
     docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE && \
         cd /opt && \
-        git clone https://github.com/intracom-telecom-sdn/nstat.git -b nstat-testing && \
+        git clone https://github.com/intracom-telecom-sdn/nstat.git -b master && \
     if [ "$container_id" == "mn-01" ] || [ "$container_id" == "mn-02" ] || [ "$container_id" == "mn-03" ] || [ "$container_id" == "mn-04" ] || [ "$container_id" == "mn-05" ] || [ "$container_id" == "mn-06" ] || [ "$container_id" == "mn-07" ] || [ "$container_id" == "mn-08" ] || [ "$container_id" == "mn-09" ] || [ "$container_id" == "mn-10" ] || [ "$container_id" == "mn-11" ] || [ "$container_id" == "mn-12" ] || [ "$container_id" == "mn-13" ] || [ "$container_id" == "mn-14" ] || [ "$container_id" == "mn-15" ] || [ "$container_id" == "mn-16" ] ; then
         service openvswitch-switch start
     fi"
