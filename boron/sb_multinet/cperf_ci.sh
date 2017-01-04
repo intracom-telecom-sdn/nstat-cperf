@@ -37,14 +37,14 @@ done
 docker cp $CONFIG_FILENAME.json nstat:$NSTAT_WORKSPACE
 
 docker exec -i nstat /bin/bash -c "export PYTHONPATH=$NSTAT_WORKSPACE;source /opt/venv_nstat/bin/activate; \
-python3.4 $NSTAT_WORKSPACE/stress_test/nstat_orchestrator.py \
+python3.4 $NSTAT_WORKSPACE/stress_test/nstat_orchestrator_new.py \
      --test=$TEST_TYPE \
      --ctrl-base-dir=$NSTAT_WORKSPACE/controllers/odl_boron_pb/ \
-     --sb-generator-base-dir=$NSTAT_WORKSPACE/emulators/multinet/ \
+     --sb-emulator-base-dir=$NSTAT_WORKSPACE/emulators/multinet/ \
      --json-config=$NSTAT_WORKSPACE/$CONFIG_FILENAME.json \
      --json-output=$NSTAT_WORKSPACE/${CONFIG_FILENAME}_results.json \
      --html-report=$NSTAT_WORKSPACE/report.html \
      --output-dir=$NSTAT_WORKSPACE/$RESULTS_DIR/"
 
 docker cp nstat:$NSTAT_WORKSPACE/$RESULTS_DIR .
-#docker-compose down
+docker-compose down
