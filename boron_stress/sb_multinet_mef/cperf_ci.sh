@@ -21,10 +21,10 @@ echo '-------------------------------------------------------------------------'
 echo 'TEST TYPE      : '$TEST_TYPE
 echo 'CONFIG_FILENAME: '$CONFIG_FILENAME
 echo '-------------------------------------------------------------------------'
-last_mn_id=16
+
 docker-compose up -d
 
-for container_id in nstat controller mn-{01..$last_mn_id}
+for container_id in nstat controller mn-{01..32}
 do
 
     docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE && \
