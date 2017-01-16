@@ -14,6 +14,7 @@ TEST_FILE=$1
 CONFIG_FILENAME=`echo "$TEST_FILE" | cut -d'.' -f1`
 NSTAT_WORKSPACE=/opt/nstat
 RESULTS_DIR=$CONFIG_FILENAME"_results"
+WAIT_UNTIL_RETRY=2
 
 TEST_TYPE=$(echo $CONFIG_FILENAME | grep -oP "sb_[a-z]*_[a-z]*")
 
@@ -26,12 +27,16 @@ docker-compose up -d
 
 for container_id in nstat controller mn-{01..32}
 do
-
-    docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE && \
-        cd /opt && \
-        git clone https://github.com/intracom-telecom-sdn/nstat.git -b develop_mef_tests && \
-        if [[ $container_id =~ mn ]]; then
-            service openvswitch-switch start
+    docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE; \
+        cd /opt; \
+        until git clone https://github.com/intracom-telecom-sdn/nstat.git -b develop_mef_tests; do \
+            echo 'Fail git clone NSTAT. Sleep for $WAIT_UNTIL_RETRY and retry'; \
+        done; \
+        if [[ $container_id =~ mn ]]; then \
+            until service openvswitch-switch start; do \
+                echo 'Fail starting openvswitch service. Sleep for $WAIT_UNTIL_RETRY and retry'; \
+                sleep $WAIT_UNTIL_RETRY; \
+            done \
         fi"
 done
 
