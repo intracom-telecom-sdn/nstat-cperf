@@ -20,7 +20,6 @@ echo '-------------------------------------------------------------------------'
 echo 'TEST TYPE      : '$TEST_TYPE
 echo 'CONFIG_FILENAME: '$CONFIG_FILENAME
 echo '-------------------------------------------------------------------------'
-
 docker-compose up -d
 
 for container_id in nstat controller mtcbench
@@ -36,7 +35,7 @@ docker exec -i nstat /bin/bash -c "export PYTHONPATH=$NSTAT_WORKSPACE;source /op
 python3.4 $NSTAT_WORKSPACE/stress_test/nstat_orchestrator.py \
      --test=$TEST_TYPE \
      --ctrl-base-dir=$NSTAT_WORKSPACE/controllers/odl_beryllium_pb/ \
-     --sb-generator-base-dir=$NSTAT_WORKSPACE/emulators/mt_cbench/ \
+     --sb-emulator-base-dir=$NSTAT_WORKSPACE/emulators/mt_cbench/ \
      --json-config=$NSTAT_WORKSPACE/$CONFIG_FILENAME.json \
      --json-output=$NSTAT_WORKSPACE/${CONFIG_FILENAME}_results.json \
      --html-report=$NSTAT_WORKSPACE/report.html \
