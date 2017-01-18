@@ -1,0 +1,279 @@
+version: '2'
+
+services:
+  nstat:
+    image: intracom/nstat:proxy
+    privileged: true
+    container_name: nstat
+    hostname: nstat-node
+    networks:
+      nstat_net:
+        ipv4_address: 10.0.1.10
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
+
+  controller:
+    image: intracom/nstat:controller_pb_proxy
+    privileged: true
+    container_name: controller
+    hostname: ctrl-node
+    depends_on:
+      - nstat
+    networks:
+      nstat_net:
+        ipv4_address: 10.0.1.11
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
+
+  mn01:
+    image: intracom/multinet:proxy
+    privileged: true
+    container_name: mn-01
+    hostname: mn01-node
+    depends_on:
+      - nstat
+    networks:
+      nstat_net:
+        ipv4_address: 10.0.1.12
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
+
+  mn02:
+    image: intracom/multinet:proxy
+    privileged: true
+    container_name: mn-02
+    hostname: mn02-node
+    depends_on:
+      - nstat
+    networks:
+      nstat_net:
+        ipv4_address: 10.0.1.13
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
+
+  mn03:
+    image: intracom/multinet:proxy
+    privileged: true
+    container_name: mn-03
+    hostname: mn03-node
+    depends_on:
+      - nstat
+    networks:
+      nstat_net:
+        ipv4_address: 10.0.1.14
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
+
+  mn04:
+    image: intracom/multinet:proxy
+    privileged: true
+    container_name: mn-04
+    hostname: mn04-node
+    depends_on:
+      - nstat
+    networks:
+      nstat_net:
+        ipv4_address: 10.0.1.15
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
+
+  mn05:
+    image: intracom/multinet:proxy
+    privileged: true
+    container_name: mn-05
+    hostname: mn05-node
+    depends_on:
+      - nstat
+    networks:
+      nstat_net:
+        ipv4_address: 10.0.1.16
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
+
+  mn06:
+    image: intracom/multinet:proxy
+    privileged: true
+    container_name: mn-06
+    hostname: mn06-node
+    depends_on:
+      - nstat
+    networks:
+      nstat_net:
+        ipv4_address: 10.0.1.17
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
+
+  mn07:
+    image: intracom/multinet:proxy
+    privileged: true
+    container_name: mn-07
+    hostname: mn07-node
+    depends_on:
+      - nstat
+    networks:
+      nstat_net:
+        ipv4_address: 10.0.1.18
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
+
+  mn08:
+    image: intracom/multinet:proxy
+    privileged: true
+    container_name: mn-08
+    hostname: mn08-node
+    depends_on:
+      - nstat
+    networks:
+      nstat_net:
+        ipv4_address: 10.0.1.19
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
+
+  mn09:
+    image: intracom/multinet:proxy
+    privileged: true
+    container_name: mn-09
+    hostname: mn09-node
+    depends_on:
+      - nstat
+    networks:
+      nstat_net:
+        ipv4_address: 10.0.1.20
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
+
+  mn10:
+    image: intracom/multinet:proxy
+    privileged: true
+    container_name: mn-10
+    hostname: mn10-node
+    depends_on:
+      - nstat
+    networks:
+      nstat_net:
+        ipv4_address: 10.0.1.21
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
+
+  mn11:
+    image: intracom/multinet:proxy
+    privileged: true
+    container_name: mn-11
+    hostname: mn11-node
+    depends_on:
+      - nstat
+    networks:
+      nstat_net:
+        ipv4_address: 10.0.1.22
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
+
+  mn12:
+    image: intracom/multinet:proxy
+    privileged: true
+    container_name: mn-12
+    hostname: mn12-node
+    depends_on:
+      - nstat
+    networks:
+      nstat_net:
+        ipv4_address: 10.0.1.23
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
+
+  mn13:
+    image: intracom/multinet:proxy
+    privileged: true
+    container_name: mn-13
+    hostname: mn13-node
+    depends_on:
+      - nstat
+    networks:
+      nstat_net:
+        ipv4_address: 10.0.1.24
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
+
+  mn14:
+    image: intracom/multinet:proxy
+    privileged: true
+    container_name: mn-14
+    hostname: mn14-node
+    depends_on:
+      - nstat
+    networks:
+      nstat_net:
+        ipv4_address: 10.0.1.25
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
+
+  mn15:
+    image: intracom/multinet:proxy
+    privileged: true
+    container_name: mn-15
+    hostname: mn15-node
+    depends_on:
+      - nstat
+    networks:
+      nstat_net:
+        ipv4_address: 10.0.1.26
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
+
+  mn16:
+    image: intracom/multinet:proxy
+    privileged: true
+    container_name: mn-16
+    hostname: mn16-node
+    depends_on:
+      - nstat
+    networks:
+      nstat_net:
+        ipv4_address: 10.0.1.27
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
+
+networks:
+  nstat_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 10.0.1.0/24
+        gateway: 10.0.1.1

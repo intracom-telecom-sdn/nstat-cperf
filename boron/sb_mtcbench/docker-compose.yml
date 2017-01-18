@@ -2,16 +2,20 @@ version: '2'
 
 services:
   nstat:
-    image: intracom/nstat
+    image: intracom/nstat:proxy
     privileged: true
     container_name: nstat
     hostname: nstat-node
     networks:
       nstat_net:
         ipv4_address: 10.0.1.10
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
 
   controller:
-    image: intracom/nstat
+    image: intracom/nstat:controller_pb_proxy
     privileged: true
     container_name: controller
     hostname: ctrl-node
@@ -20,9 +24,13 @@ services:
     networks:
       nstat_net:
         ipv4_address: 10.0.1.11
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
 
   mtcbench:
-    image: intracom/nstat
+    image: intracom/mtcbench:proxy
     privileged: true
     container_name: mtcbench
     hostname: mtcbench-node
@@ -31,6 +39,10 @@ services:
     networks:
       nstat_net:
         ipv4_address: 10.0.1.12
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
 
 networks:
   nstat_net:

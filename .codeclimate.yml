@@ -1,0 +1,24 @@
+---
+engines:
+  fixme:
+    enabled: true
+ratings:
+  paths: []
+exclude_paths: []
+languages:
+  Ruby: true
+  JavaScript: false
+  Python: false
+  PHP: false
+engines:
+ radon:
+  enabled: true
+ shellcheck:
+   enabled: true
+ markdownlint:
+   enabled: true
+ratings:
+  paths:
+    - "**.py"
+    - "**.sh"
+    - "**.md"

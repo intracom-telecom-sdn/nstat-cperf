@@ -2,16 +2,20 @@ version: '2'
 
 services:
   nstat:
-    image: intracom/nstat
+    image: intracom/nstat:proxy
     privileged: true
     container_name: nstat
     hostname: nstat-node
     networks:
       nstat_net:
         ipv4_address: 10.0.1.10
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
 
   controller:
-    image: intracom/nstat
+    image: intracom/nstat:controller_pb_proxy
     privileged: true
     container_name: controller
     hostname: ctrl-node
@@ -20,9 +24,13 @@ services:
     networks:
       nstat_net:
         ipv4_address: 10.0.1.11
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
 
   mn01:
-    image: intracom/nstat
+    image: intracom/multinet:proxy
     privileged: true
     container_name: mn-01
     hostname: mn01-node
@@ -31,9 +39,13 @@ services:
     networks:
       nstat_net:
         ipv4_address: 10.0.1.12
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
 
   mn02:
-    image: intracom/nstat
+    image: intracom/multinet:proxy
     privileged: true
     container_name: mn-02
     hostname: mn02-node
@@ -42,6 +54,10 @@ services:
     networks:
       nstat_net:
         ipv4_address: 10.0.1.13
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
 
 networks:
   nstat_net:

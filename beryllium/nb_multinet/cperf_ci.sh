@@ -14,9 +14,8 @@ TEST_FILE=$1
 CONFIG_FILENAME=`echo "$TEST_FILE" | cut -d'.' -f1`
 NSTAT_WORKSPACE=/opt/nstat
 RESULTS_DIR=$CONFIG_FILENAME"_results"
+TEST_TYPE=$(echo $CONFIG_FILENAME | grep -oP "nb_[a-z]*_[a-z]*")
 
-TMP=${CONFIG_FILENAME#*_*_}
-TEST_TYPE=${TMP%.*}
 echo '-------------------------------------------------------------------------'
 echo 'TEST TYPE      : '$TEST_TYPE
 echo 'CONFIG_FILENAME: '$CONFIG_FILENAME
@@ -28,7 +27,10 @@ for container_id in nstat controller nbgen mn-01 mn-02
 do
     docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE && \
         cd /opt && \
-        git clone https://github.com/intracom-telecom-sdn/nstat.git -b master"
+        git clone https://github.com/intracom-telecom-sdn/nstat.git -b master && \
+    if [ "$container_id" == "mn-01" ] || [ "$container_id" == "mn-02" ] ; then
+        service openvswitch-switch start
+    fi"
 done
 
 docker cp $CONFIG_FILENAME.json nstat:$NSTAT_WORKSPACE
@@ -37,7 +39,8 @@ docker exec -i nstat /bin/bash -c "export PYTHONPATH=$NSTAT_WORKSPACE;source /op
 python3.4 $NSTAT_WORKSPACE/stress_test/nstat_orchestrator.py \
      --test=$TEST_TYPE \
      --ctrl-base-dir=$NSTAT_WORKSPACE/controllers/odl_beryllium_pb/ \
-     --sb-generator-base-dir=$NSTAT_WORKSPACE/emulators/multinet/ \
+     --sb-emulator-base-dir=$NSTAT_WORKSPACE/emulators/multinet/ \
+     --nb-emulator-base-dir=$NSTAT_WORKSPACE/emulators/nb_generator/ \
      --json-config=$NSTAT_WORKSPACE/$CONFIG_FILENAME.json \
      --json-output=$NSTAT_WORKSPACE/${CONFIG_FILENAME}_results.json \
      --html-report=$NSTAT_WORKSPACE/report.html \
