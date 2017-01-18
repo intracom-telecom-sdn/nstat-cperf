@@ -1,3 +1,6 @@
+[![Code Climate](https://codeclimate.com/github/intracom-telecom-sdn/nstat-cperf/badges/gpa.svg)](https://codeclimate.com/github/intracom-telecom-sdn/nstat-cperf)
+[![Issue Count](https://codeclimate.com/github/intracom-telecom-sdn/nstat-cperf/badges/issue_count.svg)](https://codeclimate.com/github/intracom-telecom-sdn/nstat-cperf)
+
 # NSTAT: Automated stress tests for OPFNV/Cperf project
 
 ## Overview
