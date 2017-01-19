@@ -32,7 +32,7 @@
 "controller_cleanup":false,
 "controller_name":"ODL",
 "controller_port":6653,
-"controller_statistics_period_ms":[5000],
+"controller_statistics_period_ms":5000,
 
 "controller_restconf_port":8181,
 "controller_restconf_user":"admin",
@@ -59,8 +59,9 @@
 "multinet_switch_type":"ovsk",
 "multinet_worker_ip_list":["10.0.1.12", "10.0.1.13"],
 "multinet_worker_port_list":[3333, 3333],
-"test_repeats":1000,
 
+"test_repeats":100,
+"test_repeat_interval_ms":1000,
 
 "java_opts":["-Xmx2G","-Xms2G","-XX:+UseG1GC","-XX:MaxPermSize=512M"],
 
