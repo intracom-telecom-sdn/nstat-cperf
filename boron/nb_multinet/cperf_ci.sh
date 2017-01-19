@@ -27,7 +27,7 @@ for container_id in nstat controller nbgen mn-01 mn-02
 do
     docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE && \
         cd /opt && \
-        git clone https://github.com/intracom-telecom-sdn/nstat.git -b master && \
+        git clone https://github.com/intracom-telecom-sdn/nstat.git -b develop_check_topo_booted && \
     if [ "$container_id" == "mn-01" ] || [ "$container_id" == "mn-02" ] ; then
         service openvswitch-switch start
     fi"
