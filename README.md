@@ -5,7 +5,15 @@ The repository contains scripts for automatically running all SDN controller
 performance [stress tests](https://github.com/intracom-telecom-sdn/nstat/wiki)
 with the aid of the [NSTAT](https://github.com/intracom-telecom-sdn/nstat)
 suite. At the moment json input files are provided for two different versions
-of the OpenDaylight controller, Beryllium and Boron SR1.
+of the OpenDaylight controller, Beryllium and Boron SR1. These files are stored
+under
+
+```bash
+./beryllium
+./boron
+```
+directories. For running the tests on your host machine, the tools below should
+be installed.
 
 ## Essential tools
 
@@ -13,6 +21,8 @@ of the OpenDaylight controller, Beryllium and Boron SR1.
 - docker-compose (v.1.8.0 or later)
 
 ## Installation
+
+For running the tests
 
 -  Step 1
 ```bash
