@@ -11,12 +11,12 @@
 # - docker
 # - docker-compose
 TEST_FILE=$1
-CONFIG_FILENAME=`echo "$TEST_FILE" | cut -d'.' -f1`
+CONFIG_FILENAME=$2
 NSTAT_WORKSPACE=/opt/nstat
 RESULTS_DIR=$CONFIG_FILENAME"_results"
 WAIT_UNTIL_RETRY=2
 
-TEST_TYPE=$(echo $CONFIG_FILENAME | grep -oP "sb_[a-z]*_[a-z]*")
+TEST_TYPE="mef_stability_test"
 
 echo '-------------------------------------------------------------------------'
 echo 'TEST TYPE      : '$TEST_TYPE
@@ -25,7 +25,7 @@ echo '-------------------------------------------------------------------------'
 
 docker-compose up -d
 
-for container_id in nstat controller mn-{01..32}
+for container_id in nstat controller mn-{01..23}
 do
     docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE; \
         cd /opt; \
