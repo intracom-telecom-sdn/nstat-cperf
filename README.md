@@ -4,7 +4,11 @@
 # NSTAT: Automated stress tests for OPFNV/Cperf project
 
 ## Overview
-The repository contains scripts for automatically running....
+The repository contains scripts for automatically running all SDN controller
+performance [stress tests](https://github.com/intracom-telecom-sdn/nstat/wiki) 
+with the aid of the [NSTAT](https://github.com/intracom-telecom-sdn/nstat)
+suite. At the moment json input files are provided for two different versions
+of the OpenDaylight controller, Beryllium and Boron SR1.
 
 ## Essential tools
 
