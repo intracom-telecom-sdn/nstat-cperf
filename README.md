@@ -12,17 +12,18 @@ under
 ./beryllium
 ./boron
 ```
-directories. For running the tests on your host machine, the tools below should
-be installed.
+directories. For running the tests on a host machine, the tools and the steps
+below should be installed and followed.
 
 ## Essential tools
 
-- docker (v.1.12.1 or later)
-- docker-compose (v.1.8.0 or later)
+- [docker](https://docs.docker.com/engine/installation/) (v.1.12.1 or later)
+- [docker-compose](https://docs.docker.com/compose/install/) (v.1.8.0 or later)
 
 ## Installation
 
-For running the tests
+For running the tests, clone the [NSTAT:OPFNV/Cperf](https://github.com/intracom-telecom-sdn/nstat-cperf#nstat-automated-stress-tests-for-opfnvcperf-project)
+on the host machine.
 
 -  Step 1
 ```bash
@@ -63,11 +64,27 @@ sudo service docker restart
 
 ## Run the tests
 
-### Folder structure
+- [Flow scalability test with idle Multinet switches](https://github.com/intracom-telecom-sdn/nstat/wiki/Flow-scalability-test-with-idle-Multinet-switches)
+  - ./$NSTAT_CPERF_DIR/boron/nb_multinet/cperf_ci.sh boron_nb_active_scalability_multinet.json
 
-### Run a single test
+- [Switch scalability test with active MT-Cbench switches](https://github.com/intracom-telecom-sdn/nstat/wiki/Switch-scalability-test-with-active-MT-Cbench-switches)
+  - ./$NSTAT_CPERF_DIR/boron/sb_mtcbench/cperf_ci.sh boron_DS_sb_active_scalability_mtcbench.json
+  - ./$NSTAT_CPERF_DIR/boron/sb_mtcbench/cperf_ci.sh boron_RPC_sb_active_scalability_mtcbench.json
+- [Controller stability test with active MT-Cbench switches](https://github.com/intracom-telecom-sdn/nstat/wiki/Controller-stability-test-with-active-MT-Cbench-switches)
+  - ./$NSTAT_CPERF_DIR/boron/sb_mtcbench/cperf_ci.sh boron_DS_sb_active_stability_mtcbench.json
+  - ./$NSTAT_CPERF_DIR/boron/sb_mtcbench/cperf_ci.sh boron_RPC_sb_active_stability_mtcbench.json
+- [Switch scalability test with idle MT-Cbench switches](https://github.com/intracom-telecom-sdn/nstat/wiki/Switch-scalability-test-with-idle-MT-Cbench-switches)
+  - ./$NSTAT_CPERF_DIR/boron/sb_mtcbench/cperf_ci.sh boron_DS_sb_idle_scalability_mtcbench.json
+  - ./$NSTAT_CPERF_DIR/boron/sb_mtcbench/cperf_ci.sh boron_RPC_sb_idle_scalability_mtcbench.json
+- [Switch scalability test with active Multinet switches](https://github.com/intracom-telecom-sdn/nstat/wiki/Switch-scalability-test-with-active-Multinet-switches)
+  - ./$NSTAT_CPERF_DIR/boron/sb_multinet/cperf_ci.sh boron_sb_active_scalability_multinet.json
+- [Switch scalability test with idle Multinet switches](https://github.com/intracom-telecom-sdn/nstat/wiki/Switch-scalability-test-with-idle-Multinet-switches)
+  - ./$NSTAT_CPERF_DIR/boron/sb_multinet/cperf_ci.sh boron_sb_idle_scalability_multinet.json
+- [Controller stability test with idle Multinet switches](https://github.com/intracom-telecom-sdn/nstat/wiki/Controller-stability-test-with-idle-Multinet-switches)
+  - ./$NSTAT_CPERF_DIR/boron/sb_multinet/cperf_ci.sh boron_sb_idle_stability_multinet.json
 
-### Run all tests in chain
+### Test Execution sequence
+
 
 
 ## Contact and Support
