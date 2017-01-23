@@ -15,7 +15,7 @@ CONFIG_FILENAME=$2
 NSTAT_WORKSPACE=/opt/nstat
 RESULTS_DIR=$CONFIG_FILENAME"_results"
 WAIT_UNTIL_RETRY=2
-CONTAINER_IDS="nstat controller "$(echo mn-{01..02})
+CONTAINER_IDS="nstat controller "$(echo mn-{01..23})
 
 TEST_TYPE="mef_stability_test"
 
