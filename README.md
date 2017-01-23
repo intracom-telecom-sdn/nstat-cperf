@@ -55,12 +55,21 @@ sudo service docker restart
 ```
 -  Step 4
 
-```yaml
-    ulimits:
-      nofile:
-        soft: 1000000
-        hard: 1000000
-```
+Make the following system configuration parameters on the host machine by editing
+the system files as mentioned below
+
+-  ```/etc/security/limits.conf```
+  *  soft nofile 1000000
+  *  hard nofile 1000000
+
+-  ```/etc/sysctl.conf ```
+
+  *  net.ipv4.ip_forward = 1
+  *  kernel.nmi_watchdog=0
+  *  kernel.pty.max = 4096
+  *  fs.file-max = 26233259
+  *  net.core.wmem_max = 12582912
+  *  net.core.rmem_max = 12582912
 
 ## Run the tests
 
@@ -83,9 +92,50 @@ sudo service docker restart
 - [Controller stability test with idle Multinet switches](https://github.com/intracom-telecom-sdn/nstat/wiki/Controller-stability-test-with-idle-Multinet-switches)
   - ./$NSTAT_CPERF_DIR/boron/sb_multinet/cperf_ci.sh boron_sb_idle_stability_multinet.json
 
-### Test Execution sequence
+### Test execution sequence
+
+An exeample of a test execution sequence is shown in the figure below.
+
+Every cperf_ci.sh script and given the aforementioned ```*.json``` file will deploy
+the proper number of containers as defined in ```docker-compose.yml``` file.
+
+For example the ```docker-compose.yml``` located under ```/boron/sb_mtcbehch```
+defines three containers
+
+  -  ```nstat```,
+  -  ```controller```,
+  -  ```mtcbench```
+
+which will be created out of the
+
+  -  ```intracom/nstat:proxy```
+  -  ```intracom/nstat:controller_pb_proxy```
+  -  ```intracom/mtcbench:proxy```
+
+images. These images are prebuilt, and located
+under [hub.dockerhub/intracom](https://hub.docker.com/u/intracom/). All containers
+are interconnected with IPs defined within the ```docker-compose.yml```.
+
+Once the docker containers are up and running, the test input ```*.json``` is copied
+on to the NSTAT container
+
+```bash
+docker cp $CONFIG_FILENAME.json nstat:$NSTAT_WORKSPACE
+```
+and a ```docker-exec``` command follows
+
+```bash
+docker exec -i nstat /bin/bash -c
+...
+```
+which will execute the proper test. Once the test is over, the results folder
+is copied back to the ```HOST``` and all containers are killed. The user can
+then navigate to the ```RESULTS_DIR``` directory to check all test results.
+Parameters ```NSTAT_WORKSPACE, RESULTS_DIR``` are defined within the
+```cperf_ci.sh``` script.
 
 
+![Test execution](images/cperf.png)
 
 ## Contact and Support
 
