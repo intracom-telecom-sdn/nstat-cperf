@@ -15,7 +15,6 @@ CONFIG_FILENAME=$2
 NSTAT_WORKSPACE=/opt/nstat
 RESULTS_DIR=$CONFIG_FILENAME"_results"
 WAIT_UNTIL_RETRY=2
-NO_PROXY_IP_RANGE=$(echo 10.0.1.{1..255}|tr " " ",")",127.0.0.1,localhost"
 CONTAINER_IDS="nstat controller "$(echo mn-{01..02})
 
 TEST_TYPE="mef_stability_test"
@@ -34,8 +33,6 @@ do
         until git clone https://github.com/intracom-telecom-sdn/nstat.git -b develop_mef_tests; do \
             echo 'Fail git clone NSTAT. Sleep for $WAIT_UNTIL_RETRY and retry'; \
         done; \
-        export no_proxy=$NO_PROXY_IP_RANGE \
-        export NO_PROXY=$NO_PROXY_IP_RANGE \
         if [[ $container_id =~ mn ]]; then \
             until service openvswitch-switch start; do \
                 echo 'Fail starting openvswitch service. Sleep for $WAIT_UNTIL_RETRY and retry'; \
