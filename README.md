@@ -93,9 +93,9 @@ the proper number of containers as defined in ```docker-compose.yml``` file.
 For example the ```docker-compose.yml``` located under ```/boron/sb_mtcbehch```
 defines three containers
 
-  -  nstat,
-  -  controller,
-  -  mtcbench```
+  -  ```nstat```,
+  -  ```controller```,
+  -  ```mtcbench```
 
 which will be created out of the
 
@@ -104,7 +104,8 @@ which will be created out of the
   -  ```intracom/mtcbench:proxy```
 
 images. These images are prebuilt, and located
-under [hub.dockerhub/intracom](https://hub.docker.com/u/intracom/).
+under [hub.dockerhub/intracom](https://hub.docker.com/u/intracom/). All containers
+are interconnected with IPs defined within the ```docker-compose.yml```.
 
 Once the docker containers are up and running, the test input ```*.json``` is copied
 on to the NSTAT container
