@@ -40,7 +40,7 @@ python3.4 $NSTAT_WORKSPACE/stress_test/nstat_orchestrator.py \
      --test=$TEST_TYPE \
      --ctrl-base-dir=$NSTAT_WORKSPACE/controllers/odl_boron_pb/ \
      --sb-emulator-base-dir=$NSTAT_WORKSPACE/emulators/multinet/ \
-     --nb-emulator-base-dir=$NSTAT_WORKSPACE/emulators/nb_generator/ \
+     --nb-emulator-base-dir=$NSTAT_WORKSPACE/emulators/nb_generator/src/ \
      --json-config=$NSTAT_WORKSPACE/$CONFIG_FILENAME.json \
      --json-output=$NSTAT_WORKSPACE/${CONFIG_FILENAME}_results.json \
      --html-report=$NSTAT_WORKSPACE/report.html \
