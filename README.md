@@ -55,12 +55,21 @@ sudo service docker restart
 ```
 -  Step 4
 
-```yaml
-    ulimits:
-      nofile:
-        soft: 1000000
-        hard: 1000000
-```
+Make the following system configuration parameters on the host machine by editing
+the system files as mentioned below
+
+-  ```/etc/security/limits.conf```
+  *  soft nofile 1000000
+  *  hard nofile 1000000
+
+-  ```/etc/sysctl.conf ```
+
+  *  net.ipv4.ip_forward = 1
+  *  kernel.nmi_watchdog=0
+  *  kernel.pty.max = 4096
+  *  fs.file-max = 26233259
+  *  net.core.wmem_max = 12582912
+  *  net.core.rmem_max = 12582912
 
 ## Run the tests
 
