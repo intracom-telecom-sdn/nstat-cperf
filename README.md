@@ -85,7 +85,35 @@ sudo service docker restart
 
 ### Test Execution sequence
 
+Every cperf_ci.sh script and given the aforementioned ```*.json``` file will deploy
+the proper number of containers as defined in ```docker-compose.yml``` file.
 
+For example the ```docker-compose.yml``` located under ```/boron/sb_mtcbehch```
+defines three containers ```nstat, controller, mtcbench``` which will be created
+out of the (1) ```intracom/nstat:proxy``` (2) ```intracom/nstat:controller_pb_proxy```
+(3)  ```intracom/mtcbench:proxy``` images. These images are prebuilt, and located
+under [hub.dockerhub/intracom](https://hub.docker.com/u/intracom/).
+
+Once the docker containers are up and running, the test input ```*.json``` is copied
+on to the NSTAT container
+
+```bash
+docker cp $CONFIG_FILENAME.json nstat:$NSTAT_WORKSPACE
+```
+and a ```docker-exec``` command follows
+
+```bash
+docker exec -i nstat /bin/bash -c
+...
+```
+which will execute the proper test. Once the test is over, the results folder
+is copied back to the ```HOST``` and all containers are killed. The user can
+then navigate to the ```RESULTS_DIR``` directory to check all test results.
+Parameters ```NSTAT_WORKSPACE, RESULTS_DIR``` are defined within the
+```cperf_ci.sh``` script.
+
+
+![Test execution](images/cperf.png)
 
 ## Contact and Support
 
