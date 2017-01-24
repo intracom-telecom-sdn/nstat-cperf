@@ -10,8 +10,7 @@
 # Prerequisites:
 # - docker
 # - docker-compose
-TEST_FILE=$1
-CONFIG_FILENAME=$2
+CONFIG_FILENAME=$1
 NSTAT_WORKSPACE=/opt/nstat
 RESULTS_DIR=$CONFIG_FILENAME"_results"
 WAIT_UNTIL_RETRY=2
