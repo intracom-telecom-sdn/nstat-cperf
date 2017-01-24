@@ -10,6 +10,7 @@
 # Prerequisites:
 # - docker
 # - docker-compose
+
 CONFIG_FILENAME=$1
 NSTAT_WORKSPACE=/opt/nstat
 RESULTS_DIR=$CONFIG_FILENAME"_results"
