@@ -27,7 +27,7 @@ for container_id in nstat controller nbgen mn-01 mn-02
 do
     docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE && \
         cd /opt && \
-        git clone https://github.com/intracom-telecom-sdn/nstat.git -b nb-gen-fix && \
+        git clone https://github.com/intracom-telecom-sdn/nstat.git -b master && \
     if [ "$container_id" == "mn-01" ] || [ "$container_id" == "mn-02" ] ; then
         service openvswitch-switch start
     fi"
@@ -47,4 +47,4 @@ python3.4 $NSTAT_WORKSPACE/stress_test/nstat_orchestrator.py \
      --output-dir=$NSTAT_WORKSPACE/$RESULTS_DIR/"
 
 docker cp nstat:$NSTAT_WORKSPACE/$RESULTS_DIR .
-#docker-compose down
+docker-compose down
