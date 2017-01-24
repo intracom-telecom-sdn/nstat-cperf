@@ -83,7 +83,39 @@
       "y_axis_scale": "linear"
   },
   {
-      "x_axis_key":"multinet_size",
+      "x_axis_key":"global_sample_id",
+      "y_axis_key":"discovered_switches",
+      "z_axis_key":null,
+      "x_axis_label":"number of samples (global sample id)",
+      "y_axis_label":"Discovered switches",
+      "plot_type":"errorbar",
+      "plot_title":"Number of discovered switches in controller datastore (Boron)",
+      "plot_subtitle_keys":["controller_java_xopts", "multinet_group_size"],
+      "plot_filename":"num_discovered_switches",
+      "x_min":null, "x_max":null, "y_min":null, "y_max":null,
+      "x_axis_factor":"1.0",
+      "y_axis_factor":"1.0",
+      "x_axis_scale": "linear",
+      "y_axis_scale": "linear"
+  },
+  {
+      "x_axis_key":"global_sample_id",
+      "y_axis_key":"discovered_links",
+      "z_axis_key":null,
+      "x_axis_label":"number of samples (global sample id)",
+      "y_axis_label":"Discovered links",
+      "plot_type":"errorbar",
+      "plot_title":"Number of discovered links in controller datastore (Boron)",
+      "plot_subtitle_keys":["controller_java_xopts", "multinet_group_size"],
+      "plot_filename":"num_discovered_switches",
+      "x_min":null, "x_max":null, "y_min":null, "y_max":null,
+      "x_axis_factor":"1.0",
+      "y_axis_factor":"1.0",
+      "x_axis_scale": "linear",
+      "y_axis_scale": "linear"
+  },
+  {
+      "x_axis_key":"global_sample_id",
       "y_axis_key":"used_memory_bytes",
       "z_axis_key":null,
       "x_axis_label":"number of network switches [N]",
@@ -99,7 +131,7 @@
       "y_axis_scale": "linear"
   },
   {
-      "x_axis_key":"multinet_size",
+      "x_axis_key":"global_sample_id",
       "y_axis_key":"controller_vm_size",
       "z_axis_key":null,
       "x_axis_label":"number of network switches [N]",
@@ -115,7 +147,7 @@
       "y_axis_scale": "linear"
   },
   {
-      "x_axis_key":"multinet_size",
+      "x_axis_key":"global_sample_id",
       "y_axis_key":"controller_num_threads",
       "z_axis_key":null,
       "x_axis_label":"number of network switches [N]",
@@ -131,7 +163,7 @@
       "y_axis_scale": "linear"
   },
   {
-      "x_axis_key":"multinet_size",
+      "x_axis_key":"global_sample_id",
       "y_axis_key":"controller_cpu_user_time",
       "z_axis_key":null,
       "x_axis_label":"number of network switches [N]",
@@ -147,7 +179,7 @@
       "y_axis_scale": "linear"
   },
   {
-      "x_axis_key":"multinet_size",
+      "x_axis_key":"global_sample_id",
       "y_axis_key":"one_minute_load",
       "z_axis_key":null,
       "x_axis_label":"number of network switches [N]",
@@ -163,7 +195,7 @@
       "y_axis_scale": "linear"
   },
   {
-      "x_axis_key":"multinet_size",
+      "x_axis_key":"global_sample_id",
       "y_axis_key":"five_minute_load",
       "z_axis_key":null,
       "x_axis_label":"number of network switches [N]",
@@ -179,7 +211,7 @@
       "y_axis_scale": "linear"
   },
   {
-      "x_axis_key":"multinet_size",
+      "x_axis_key":"global_sample_id",
       "y_axis_key":"fifteen_minute_load",
       "z_axis_key":null,
       "x_axis_label":"number of network switches [N]",
