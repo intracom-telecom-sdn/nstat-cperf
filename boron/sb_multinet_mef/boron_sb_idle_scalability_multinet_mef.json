@@ -32,7 +32,7 @@
 "controller_cleanup":false,
 "controller_name":"ODL",
 "controller_port":6653,
-"controller_statistics_disable":true,
+"controller_statistics_disable":false,
 
 "controller_restconf_port":8181,
 "controller_restconf_user":"admin",
