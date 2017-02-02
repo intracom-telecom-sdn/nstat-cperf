@@ -16,7 +16,7 @@
 "sb_emulator_node_password":"root123",
 
 "controller_build_handler":"build.sh",
-"controller_start_handler":"start_mef.sh",
+"controller_start_handler":"start_mef_no_lldp.sh",
 "controller_stop_handler":"stop.sh",
 "controller_status_handler":"status.sh",
 "controller_clean_handler":"clean.sh",
