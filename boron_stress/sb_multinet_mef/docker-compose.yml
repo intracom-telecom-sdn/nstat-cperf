@@ -15,7 +15,7 @@ services:
         hard: 1000000
 
   controller:
-    image: intracom/nstat:controller_pb_proxy
+    image: intracom/nstat-sdn-controllers:proxy
     privileged: true
     container_name: controller
     hostname: ctrl-node
