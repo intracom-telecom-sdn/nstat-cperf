@@ -27,7 +27,7 @@
 "controller_oper_switches_handler":"get_switches_mef.py",
 "controller_oper_flows_handler":"get_flows.py",
 
-"controller_logs_dir":"distribution-karaf-0.5.0-Boron/data/log/",
+"controller_logs_dir":"distribution-karaf-0.5.2-Boron-SR2/data/log/",
 
 "controller_cleanup":false,
 "controller_name":"ODL",
