@@ -8,20 +8,21 @@ Automated tests present in this repo are planned to be
 platform. Progress of this work is available [here](https://jira.opnfv.org/browse/CPERF-2).
 
 ## Overview
+
 The repository contains scripts for automatically running all SDN controller
 performance [stress tests](https://github.com/intracom-telecom-sdn/nstat/wiki)
 with the aid of the [NSTAT](https://github.com/intracom-telecom-sdn/nstat)
 and __friends__ suite. NSTAT friends are considered the
 
-  [1] [NSTAT-SDN-Controllers project](https://github.com/intracom-telecom-sdn/nstat-sdn-controllers),
+  [1] [NSTAT-SDN-Controllers](https://github.com/intracom-telecom-sdn/nstat-sdn-controllers) project,
 
   [2] the NSTAT SouthBound emulators [MTCbench](https://github.com/intracom-telecom-sdn/mtcbench),
-  [Multinet](https://github.com/intracom-telecom-sdn/multinet),
+  [Multinet](https://github.com/intracom-telecom-sdn/multinet) projects,
 
-  [3] the NSTAT NorthBound emulator [NSTAT-NB-Generator](https://github.com/intracom-telecom-sdn/nstat-nb-generator),
+  [3] the NSTAT NorthBound emulator [NSTAT-NB-Generator](https://github.com/intracom-telecom-sdn/nstat-nb-generator) project,
 
-For running the tests on a host machine, the tools and the steps
-below should be installed and followed.
+For running the tests on a host machine, the tools and steps below should be
+installed and followed respectively.
 
 ## Essential tools
 
@@ -91,16 +92,17 @@ under
 ./$NSTAT_CPERF_DIR/fnctl_tests/
 ./$NSTAT_CPERF_DIR/stress_tests/
 ```
-directories.It is recommmended to start with __Functional testing__, since no
+directories. It is recommmended to start with __functional testing__, since no
 intensive memory resources are required on the host side. 8Gb RAM memory
-(minimum) on the host machine is recommended. Funtional tests run end to end
-producing finally the test report in HTML form.
+(minimum) present on the host machine is recommended. Functional tests run end to
+end producing finally the test report in HTML form.
 
-Once the user becomes familiar with Functional testing, __Stress testing__ is
+Once the user becomes familiar with functional testing, __stress testing__ is
 nothing more than having the same input json files but with greater dimensions.
 This can be validated by looking at the diffs between ie.the json input files
-``/fnctl_tests/beryllium/beryllium_nb_active_scalability_multinet.json`` and
-``/stress_tests/beryllium/beryllium_nb_active_scalability_multinet.json``.
+
+  * ``/fnctl_tests/beryllium/beryllium_nb_active_scalability_multinet.json``,
+  * ``/stress_tests/beryllium/beryllium_nb_active_scalability_multinet.json``.
 
 ### Functional testing
 
@@ -148,9 +150,9 @@ This can be validated by looking at the diffs between ie.the json input files
 An example of a test execution sequence is shown in the Figure below.
 
 Every cperf_ci.sh script and given the aforementioned ```*.json``` file will deploy
-the proper number of containers as defined in ```docker-compose.yml``` file.
+the proper number of containers as defined within ```docker-compose.yml```.
 
-For example the ```docker-compose.yml``` located under ```/fnctl_tests/boron/sb_mtcbehch```
+For example, the ```docker-compose.yml``` located under ```/fnctl_tests/boron/sb_mtcbehch```
 defines three containers
 
   -  ```nstat```,
@@ -160,11 +162,22 @@ defines three containers
 which will be created out of the
 
   -  ```intracom/nstat:proxy```
-  -  ```intracom/nstat:controller_pb_proxy```
+  -  ```intracom/nstat-sdn-controllers:proxy```
   -  ```intracom/mtcbench:proxy```
 
 images. These images are prebuilt, and located
-under [hub.dockerhub/intracom](https://hub.docker.com/u/intracom/). All containers
+under [hub.dockerhub/intracom](https://hub.docker.com/u/intracom/). For users
+sitting behind a proxy new images must be built. Detailed instructions are
+provided in the [NSTAT installation](https://github.com/intracom-telecom-sdn/nstat/wiki/Installation)
+section. In any other case, the images to be used are labeled ``latest`` as shown
+in the example below
+
+  -  ```intracom/nstat:latest```
+  -  ```intracom/nstat-sdn-controllers:latest```
+  -  ```intracom/mtcbench:latest```
+
+
+All containers
 are interconnected with IPs defined within the ```docker-compose.yml```.
 
 Once the docker containers are up and running, the test input ```*.json``` is copied
