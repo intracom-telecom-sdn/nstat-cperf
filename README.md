@@ -36,7 +36,7 @@ on the host machine.
 
 -  Step 1
 ```bash
-git clone --branch v1.0 https://github.com/intracom-telecom-sdn/nstat-cperf.git nstat-cperf
+git clone --branch v.1.0 https://github.com/intracom-telecom-sdn/nstat-cperf.git nstat-cperf
 ```
 
 -  Step 2
