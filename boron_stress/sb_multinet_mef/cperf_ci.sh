@@ -10,8 +10,8 @@
 # Prerequisites:
 # - docker
 # - docker-compose
-TEST_FILE=$1
-CONFIG_FILENAME=$2
+
+CONFIG_FILENAME=$1
 NSTAT_WORKSPACE=/opt/nstat
 RESULTS_DIR=$CONFIG_FILENAME"_results"
 WAIT_UNTIL_RETRY=2
@@ -46,7 +46,7 @@ docker cp $CONFIG_FILENAME.json nstat:$NSTAT_WORKSPACE
 docker exec -i nstat /bin/bash -c "export PYTHONPATH=$NSTAT_WORKSPACE;source /opt/venv_nstat/bin/activate; \
 python3.4 $NSTAT_WORKSPACE/stress_test/nstat_orchestrator.py \
      --test=$TEST_TYPE \
-     --ctrl-base-dir=$NSTAT_WORKSPACE/controllers/odl_boron_pb/ \
+     --ctrl-base-dir=$NSTAT_WORKSPACE/controllers/odl_boron_sr2_pb/ \
      --sb-emulator-base-dir=$NSTAT_WORKSPACE/emulators/multinet/ \
      --json-config=$NSTAT_WORKSPACE/$CONFIG_FILENAME.json \
      --json-output=$NSTAT_WORKSPACE/${CONFIG_FILENAME}_results.json \

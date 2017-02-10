@@ -1,12 +1,5 @@
----
-engines:
-  fixme:
-    enabled: true
-ratings:
-  paths: []
-exclude_paths: []
 languages:
-  Ruby: true
+  Ruby: false
   JavaScript: false
   Python: false
   PHP: false
@@ -19,6 +12,5 @@ engines:
    enabled: true
 ratings:
   paths:
-    - "**.py"
     - "**.sh"
     - "**.md"
