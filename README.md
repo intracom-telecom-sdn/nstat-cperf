@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/intracom-telecom-sdn/nstat-cperf/badges/gpa.svg)](https://codeclimate.com/github/intracom-telecom-sdn/nstat-cperf)
+
 # NSTAT: Automated stress tests for OPFNV/Cperf project
 
 ## Overview
@@ -73,9 +75,21 @@ the system files as mentioned below
 
 ## Run the tests
 
+The tests below point to the OpenDaylight Boron controller version. It is recommmended
+to start with __Functional testing__, since no intensive memory resources are required.
+8Gb RAM memory (minimum) on the host machine is recommended. Funtional tests
+run end to end producing finally the stress test report in HTML form. Once the
+user becomes familiar with Functional testing, __Stress testing__ is nothing more
+than having the same input json files but with greater dimensions. This can be
+validated by looking at the diffs between ie.the json input files
+```boron_nb_active_scalability_multinet.json```
+
+  -
+
+### Functional testing
+
 - [Flow scalability test with idle Multinet switches](https://github.com/intracom-telecom-sdn/nstat/wiki/Flow-scalability-test-with-idle-Multinet-switches)
   - ./$NSTAT_CPERF_DIR/boron/nb_multinet/cperf_ci.sh boron_nb_active_scalability_multinet.json
-
 - [Switch scalability test with active MT-Cbench switches](https://github.com/intracom-telecom-sdn/nstat/wiki/Switch-scalability-test-with-active-MT-Cbench-switches)
   - ./$NSTAT_CPERF_DIR/boron/sb_mtcbench/cperf_ci.sh boron_DS_sb_active_scalability_mtcbench.json
   - ./$NSTAT_CPERF_DIR/boron/sb_mtcbench/cperf_ci.sh boron_RPC_sb_active_scalability_mtcbench.json
@@ -91,6 +105,27 @@ the system files as mentioned below
   - ./$NSTAT_CPERF_DIR/boron/sb_multinet/cperf_ci.sh boron_sb_idle_scalability_multinet.json
 - [Controller stability test with idle Multinet switches](https://github.com/intracom-telecom-sdn/nstat/wiki/Controller-stability-test-with-idle-Multinet-switches)
   - ./$NSTAT_CPERF_DIR/boron/sb_multinet/cperf_ci.sh boron_sb_idle_stability_multinet.json
+
+### Stress testing
+
+- [Flow scalability test with idle Multinet switches](https://github.com/intracom-telecom-sdn/nstat/wiki/Flow-scalability-test-with-idle-Multinet-switches)
+  - ./$NSTAT_CPERF_DIR/boron_stress/nb_multinet/cperf_ci.sh boron_nb_active_scalability_multinet.json
+- [Switch scalability test with active MT-Cbench switches](https://github.com/intracom-telecom-sdn/nstat/wiki/Switch-scalability-test-with-active-MT-Cbench-switches)
+  - ./$NSTAT_CPERF_DIR/boron_stress/sb_mtcbench/cperf_ci.sh boron_DS_sb_active_scalability_mtcbench.json
+  - ./$NSTAT_CPERF_DIR/boron_stress/sb_mtcbench/cperf_ci.sh boron_RPC_sb_active_scalability_mtcbench.json
+- [Controller stability test with active MT-Cbench switches](https://github.com/intracom-telecom-sdn/nstat/wiki/Controller-stability-test-with-active-MT-Cbench-switches)
+  - ./$NSTAT_CPERF_DIR/boron_stress/sb_mtcbench/cperf_ci.sh boron_DS_sb_active_stability_mtcbench.json
+  - ./$NSTAT_CPERF_DIR/boron_stress/sb_mtcbench/cperf_ci.sh boron_RPC_sb_active_stability_mtcbench.json
+- [Switch scalability test with idle MT-Cbench switches](https://github.com/intracom-telecom-sdn/nstat/wiki/Switch-scalability-test-with-idle-MT-Cbench-switches)
+  - ./$NSTAT_CPERF_DIR/boron_stress/sb_mtcbench/cperf_ci.sh boron_DS_sb_idle_scalability_mtcbench.json
+  - ./$NSTAT_CPERF_DIR/boron_stress/sb_mtcbench/cperf_ci.sh boron_RPC_sb_idle_scalability_mtcbench.json
+- [Switch scalability test with active Multinet switches](https://github.com/intracom-telecom-sdn/nstat/wiki/Switch-scalability-test-with-active-Multinet-switches)
+  - ./$NSTAT_CPERF_DIR/boron_stress/sb_multinet/cperf_ci.sh boron_sb_active_scalability_multinet.json
+- [Switch scalability test with idle Multinet switches](https://github.com/intracom-telecom-sdn/nstat/wiki/Switch-scalability-test-with-idle-Multinet-switches)
+  - ./$NSTAT_CPERF_DIR/boron_stress/sb_multinet/cperf_ci.sh boron_sb_idle_scalability_multinet.json
+- [Controller stability test with idle Multinet switches](https://github.com/intracom-telecom-sdn/nstat/wiki/Controller-stability-test-with-idle-Multinet-switches)
+  - ./$NSTAT_CPERF_DIR/boron_stress/sb_multinet/cperf_ci.sh boron_sb_idle_stability_multinet.json
+
 
 ### Test execution sequence
 

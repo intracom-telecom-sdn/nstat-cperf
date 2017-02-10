@@ -30,7 +30,7 @@
 "controller_oper_flows_handler":"get_flows.py",
 "controller_flowmods_conf_handler":"flowmods_configure.py",
 
-"controller_logs_dir":"./distribution-karaf-0.4.0-Beryllium/data/log/",
+"controller_logs_dir":"distribution-karaf-0.4.0-Beryllium/data/log/",
 
 "controller_cleanup":false,
 "controller_name":"ODL",
