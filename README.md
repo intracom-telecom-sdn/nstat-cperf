@@ -61,6 +61,7 @@ Make the following system configuration parameters on the host machine by editin
 the system files as mentioned below
 
 -  ```/etc/security/limits.conf```
+
   *  soft nofile 1000000
   *  hard nofile 1000000
 
@@ -82,9 +83,7 @@ run end to end producing finally the stress test report in HTML form. Once the
 user becomes familiar with Functional testing, __Stress testing__ is nothing more
 than having the same input json files but with greater dimensions. This can be
 validated by looking at the diffs between ie.the json input files
-```boron_nb_active_scalability_multinet.json```
 
-  -
 
 ### Functional testing
 
