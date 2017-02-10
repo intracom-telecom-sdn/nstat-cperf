@@ -61,14 +61,14 @@
 
 "plots":[
     {
-        "x_axis_key":"cbench_switches",
+        "x_axis_key":"mtcbench_switches",
         "y_axis_key":"bootup_time_secs",
-        "z_axis_key":"cbench_thread_creation_delay_ms",
+        "z_axis_key":"mtcbench_thread_creation_delay_ms",
         "x_axis_label":"number of network switches [N]",
         "y_axis_label":"bootup time [s]",
         "plot_type":"multi_scatter",
         "plot_title":"controller bootup time for various switch numbers (Beryllium)",
-        "plot_subtitle_keys":["controller_java_xopts", "cbench_ms_per_test"],
+        "plot_subtitle_keys":["controller_java_xopts", "mtcbench_ms_per_test"],
         "plot_filename":"throughput",
         "x_min":null, "x_max":null, "y_min":0, "y_max":null,
         "x_axis_factor":"1.0",
@@ -77,14 +77,14 @@
         "y_axis_scale": "linear"
     },
     {
-        "x_axis_key":"cbench_switches",
+        "x_axis_key":"mtcbench_switches",
         "y_axis_key":"used_memory_bytes",
         "z_axis_key":null,
         "x_axis_label":"number of network switches [N]",
         "y_axis_label":"used memory [MBytes]",
         "plot_type":"errorbar",
         "plot_title":"controller memory usage for varying switches (Beryllium)",
-        "plot_subtitle_keys":["controller_java_xopts", "cbench_ms_per_test"],
+        "plot_subtitle_keys":["controller_java_xopts", "mtcbench_ms_per_test"],
         "plot_filename":"memory_usage",
         "x_min":null, "x_max":null, "y_min":null, "y_max":null,
         "x_axis_factor":"1.0",
@@ -93,14 +93,14 @@
         "y_axis_scale": "linear"
     },
     {
-        "x_axis_key":"cbench_switches",
+        "x_axis_key":"mtcbench_switches",
         "y_axis_key":"controller_vm_size",
         "z_axis_key":null,
         "x_axis_label":"number of network switches [N]",
         "y_axis_label":"controller virtual memory size [MBytes]",
         "plot_type":"errorbar",
         "plot_title":"controller virtual memory size for varying switches (Beryllium)",
-        "plot_subtitle_keys":["controller_java_xopts", "cbench_ms_per_test"],
+        "plot_subtitle_keys":["controller_java_xopts", "mtcbench_ms_per_test"],
         "plot_filename":"vm_size",
         "x_min":null, "x_max":null, "y_min":null, "y_max":null,
         "x_axis_factor":"1.0",
@@ -109,14 +109,14 @@
         "y_axis_scale": "linear"
     },
     {
-        "x_axis_key":"cbench_switches",
+        "x_axis_key":"mtcbench_switches",
         "y_axis_key":"controller_num_threads",
         "z_axis_key":null,
         "x_axis_label":"number of network switches [N]",
         "y_axis_label":"controller threads [N]",
         "plot_type":"errorbar",
         "plot_title":"controller number of threads for varying switches (Beryllium)",
-        "plot_subtitle_keys":["controller_java_xopts", "cbench_ms_per_test"],
+        "plot_subtitle_keys":["controller_java_xopts", "mtcbench_ms_per_test"],
         "plot_filename":"num_threads",
         "x_min":null, "x_max":null, "y_min":null, "y_max":null,
         "x_axis_factor":"1.0",
@@ -125,14 +125,14 @@
         "y_axis_scale": "linear"
     },
     {
-        "x_axis_key":"cbench_switches",
+        "x_axis_key":"mtcbench_switches",
         "y_axis_key":"controller_cpu_user_time",
         "z_axis_key":null,
         "x_axis_label":"number of network switches [N]",
         "y_axis_label":"controller CPU user time",
         "plot_type":"errorbar",
         "plot_title":"controller CPU user time for varying switches (Beryllium)",
-        "plot_subtitle_keys":["controller_java_xopts", "cbench_ms_per_test"],
+        "plot_subtitle_keys":["controller_java_xopts", "mtcbench_ms_per_test"],
         "plot_filename":"controller_cpu_user_time",
         "x_min":null, "x_max":null, "y_min":null, "y_max":null,
         "x_axis_factor":"1.0",
@@ -141,7 +141,7 @@
         "y_axis_scale": "linear"
     },
     {
-        "x_axis_key":"cbench_switches",
+        "x_axis_key":"mtcbench_switches",
         "y_axis_key":"one_minute_load",
         "z_axis_key":null,
         "x_axis_label":"number of network switches [N]",
@@ -157,7 +157,7 @@
         "y_axis_scale": "linear"
     },
     {
-        "x_axis_key":"cbench_switches",
+        "x_axis_key":"mtcbench_switches",
         "y_axis_key":"five_minute_load",
         "z_axis_key":null,
         "x_axis_label":"number of network switches [N]",
@@ -173,7 +173,7 @@
         "y_axis_scale": "linear"
     },
     {
-        "x_axis_key":"cbench_switches",
+        "x_axis_key":"mtcbench_switches",
         "y_axis_key":"fifteen_minute_load",
         "z_axis_key":null,
         "x_axis_label":"number of network switches [N]",
