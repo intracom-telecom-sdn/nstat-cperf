@@ -1,5 +1,8 @@
 [![Code Climate](https://codeclimate.com/github/intracom-telecom-sdn/nstat-cperf/badges/gpa.svg)](https://codeclimate.com/github/intracom-telecom-sdn/nstat-cperf)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d796712f8a734e7c983e33299c117068)](https://www.codacy.com/app/kostis-g-papadopoulos/nstat-cperf?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=intracom-telecom-sdn/nstat-cperf&amp;utm_campaign=Badge_Grade)
+[![Issue Count](https://lima.codeclimate.com/github/intracom-telecom-sdn/nstat-cperf/badges/issue_count.svg)](https://lima.codeclimate.com/github/intracom-telecom-sdn/nstat-cperf)
+[![Code Health](https://landscape.io/github/intracom-telecom-sdn/nstat-cperf/master/landscape.svg?style=flat)](https://landscape.io/github/intracom-telecom-sdn/nstat-cperf/master)
+
 
 # NSTAT: Automated stress tests for OPFNV/CPerf project
 
