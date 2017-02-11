@@ -67,12 +67,13 @@ sudo gpasswd -a ${USER} docker
 ```bash
 sudo service docker restart
 ```
+
 -  Step 4
 
 Change the following system configuration parameters on the host machine by editing
 the system files as mentioned below (valid for Ubuntu/Centos distros)
 
--  ```/etc/security/limits.conf```
+-  ``/etc/security/limits.conf``
 
   *  soft nofile 1000000
   *  hard nofile 1000000
