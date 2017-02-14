@@ -40,7 +40,8 @@ on the host machine.
 
 -  Step 1
 ```bash
-git clone --branch v.1.0 https://github.com/intracom-telecom-sdn/nstat-cperf.git nstat-cperf
+git clone https://github.com/intracom-telecom-sdn/nstat-cperf.git nstat-cperf
+git --git-dir=nstat-cperf/.git --work-tree=nstat-cperf checkout v.1.0
 ```
 
 -  Step 2
