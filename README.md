@@ -23,7 +23,7 @@ and __friends__ suite. NSTAT friends are considered the
   [2] the NSTAT SouthBound emulators [MTCbench](https://github.com/intracom-telecom-sdn/mtcbench),
   [Multinet](https://github.com/intracom-telecom-sdn/multinet) projects,
 
-  [3] the NSTAT NorthBound emulator [NSTAT-NB-Generator](https://github.com/intracom-telecom-sdn/nstat-nb-generator) project,
+  [3] the NSTAT NorthBound emulator [NSTAT-NB-Emulator](https://github.com/intracom-telecom-sdn/nstat-nb-emulator) project,
 
 For running the tests on a host machine, the tools and steps below should be
 installed and followed respectively.
