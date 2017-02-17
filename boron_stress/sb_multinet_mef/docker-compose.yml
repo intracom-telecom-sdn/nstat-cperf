@@ -14,21 +14,6 @@ services:
         soft: 1000000
         hard: 1000000
 
-  controller:
-    image: intracom/nstat-sdn-controllers:proxy
-    privileged: true
-    container_name: controller
-    hostname: ctrl-node
-    depends_on:
-      - nstat
-    networks:
-      nstat_net:
-        ipv4_address: 10.0.1.11
-    ulimits:
-      nofile:
-        soft: 1000000
-        hard: 1000000
-
   mn01:
     image: intracom/multinet:proxy
     privileged: true
@@ -294,81 +279,6 @@ services:
     networks:
       nstat_net:
         ipv4_address: 10.0.1.29
-    ulimits:
-      nofile:
-        soft: 1000000
-        hard: 1000000
-
-  mn19:
-    image: intracom/multinet:proxy
-    privileged: true
-    container_name: mn-19
-    hostname: mn19-node
-    depends_on:
-      - nstat
-    networks:
-      nstat_net:
-        ipv4_address: 10.0.1.30
-    ulimits:
-      nofile:
-        soft: 1000000
-        hard: 1000000
-
-  mn20:
-    image: intracom/multinet:proxy
-    privileged: true
-    container_name: mn-20
-    hostname: mn20-node
-    depends_on:
-      - nstat
-    networks:
-      nstat_net:
-        ipv4_address: 10.0.1.31
-    ulimits:
-      nofile:
-        soft: 1000000
-        hard: 1000000
-
-  mn21:
-    image: intracom/multinet:proxy
-    privileged: true
-    container_name: mn-21
-    hostname: mn21-node
-    depends_on:
-      - nstat
-    networks:
-      nstat_net:
-        ipv4_address: 10.0.1.32
-    ulimits:
-      nofile:
-        soft: 1000000
-        hard: 1000000
-
-  mn22:
-    image: intracom/multinet:proxy
-    privileged: true
-    container_name: mn-22
-    hostname: mn22-node
-    depends_on:
-      - nstat
-    networks:
-      nstat_net:
-        ipv4_address: 10.0.1.33
-    ulimits:
-      nofile:
-        soft: 1000000
-        hard: 1000000
-
-  mn23:
-    image: intracom/multinet:proxy
-    privileged: true
-    container_name: mn-23
-    hostname: mn23-node
-    depends_on:
-      - nstat
-    networks:
-      nstat_net:
-        ipv4_address: 10.0.1.34
     ulimits:
       nofile:
         soft: 1000000
