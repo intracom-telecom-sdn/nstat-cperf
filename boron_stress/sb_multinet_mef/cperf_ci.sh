@@ -26,20 +26,20 @@ echo '-------------------------------------------------------------------------'
 
 docker-compose up -d
 
-#for container_id in $CONTAINER_IDS
-#do
-#    docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE; \
-#        cd /opt; \
-#        until git clone https://github.com/intracom-telecom-sdn/nstat.git -b develop_mef_tests; do \
-#            echo 'Fail git clone NSTAT. Sleep for $WAIT_UNTIL_RETRY and retry'; \
-#        done; \
-#        if [[ $container_id =~ mn ]]; then \
-#            until service openvswitch-switch start; do \
-#                echo 'Fail starting openvswitch service. Sleep for $WAIT_UNTIL_RETRY and retry'; \
-#                sleep $WAIT_UNTIL_RETRY; \
-#            done \
-#        fi"
-#done
+for container_id in $CONTAINER_IDS
+do
+    docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE; \
+        cd /opt; \
+        until git clone https://github.com/intracom-telecom-sdn/nstat.git -b develop_mef_tests; do \
+            echo 'Fail git clone NSTAT. Sleep for $WAIT_UNTIL_RETRY and retry'; \
+        done; \
+        if [[ $container_id =~ mn ]]; then \
+            until service openvswitch-switch start; do \
+                echo 'Fail starting openvswitch service. Sleep for $WAIT_UNTIL_RETRY and retry'; \
+                sleep $WAIT_UNTIL_RETRY; \
+            done \
+        fi"
+done
 
 docker cp $CONFIG_FILENAME.json nstat:$NSTAT_WORKSPACE
 
