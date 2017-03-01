@@ -29,7 +29,7 @@ for container_id in $CONTAINER_IDS
 do
     docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE; \
         cd /opt; \
-        until git clone https://github.com/intracom-telecom-sdn/nstat.git -b release; do \
+        until git clone https://github.com/intracom-telecom-sdn/nstat.git -b master; do \
             echo 'Fail git clone NSTAT. Sleep for $WAIT_UNTIL_RETRY and retry'; \
         done; \
         if [[ $container_id =~ mn ]]; then \
