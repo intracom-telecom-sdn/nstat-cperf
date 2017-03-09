@@ -26,16 +26,16 @@ for container_id in nstat controller mtcbench
 do
     docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE && \
         cd /opt && \
-        git clone https://github.com/intracom-telecom-sdn/nstat.git -b release"
+        git clone https://github.com/intracom-telecom-sdn/nstat.git -b master"
 done
 
 docker cp $CONFIG_FILENAME.json nstat:$NSTAT_WORKSPACE
 
 docker exec -i nstat /bin/bash -c "export PYTHONPATH=$NSTAT_WORKSPACE;source /opt/venv_nstat/bin/activate; \
-python3.4 $NSTAT_WORKSPACE/stress_test/nstat_orchestrator.py \
+python3.4 $NSTAT_WORKSPACE/stress_test/nstat.py \
      --test=$TEST_TYPE \
      --ctrl-base-dir=$NSTAT_WORKSPACE/controllers/odl_boron_pb/ \
-     --sb-emulator-base-dir=$NSTAT_WORKSPACE/emulators/mt_cbench/ \
+     --sb-emulator-base-dir=$NSTAT_WORKSPACE/emulators/sbemu/mtcbench/ \
      --json-config=$NSTAT_WORKSPACE/$CONFIG_FILENAME.json \
      --json-output=$NSTAT_WORKSPACE/${CONFIG_FILENAME}_results.json \
      --html-report=$NSTAT_WORKSPACE/report.html \

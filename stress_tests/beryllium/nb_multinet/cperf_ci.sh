@@ -45,11 +45,11 @@ done
 docker cp $CONFIG_FILENAME.json nstat:$NSTAT_WORKSPACE
 
 docker exec -i nstat /bin/bash -c "export PYTHONPATH=$NSTAT_WORKSPACE;source /opt/venv_nstat/bin/activate; \
-python3.4 $NSTAT_WORKSPACE/stress_test/nstat_orchestrator.py \
+python3.4 $NSTAT_WORKSPACE/stress_test/nstat.py \
      --test=$TEST_TYPE \
      --ctrl-base-dir=$NSTAT_WORKSPACE/controllers/odl_beryllium_pb/ \
-     --sb-generator-base-dir=$NSTAT_WORKSPACE/emulators/multinet/ \
-     --nb-generator-base-dir=$NSTAT_WORKSPACE/emulators/nb_generator/ \
+     --sb-generator-base-dir=$NSTAT_WORKSPACE/emulators/sbemu/multinet/ \
+     --nb-generator-base-dir=$NSTAT_WORKSPACE/emulators/nbemu/ \
      --json-config=$NSTAT_WORKSPACE/$CONFIG_FILENAME.json \
      --json-output=$NSTAT_WORKSPACE/${CONFIG_FILENAME}_results.json \
      --html-report=$NSTAT_WORKSPACE/report.html \
