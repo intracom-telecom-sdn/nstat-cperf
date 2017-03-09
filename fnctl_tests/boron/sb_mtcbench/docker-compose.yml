@@ -2,7 +2,7 @@ version: '2'
 
 services:
   nstat:
-    image: intracom/nstat:proxy
+    image: intracom/nstat:latest
     privileged: true
     container_name: nstat
     hostname: nstat-node
@@ -15,7 +15,7 @@ services:
         hard: 1000000
 
   controller:
-    image: intracom/nstat-sdn-controllers:proxy
+    image: intracom/nstat-sdn-controllers:latest
     privileged: true
     container_name: controller
     hostname: ctrl-node
@@ -30,7 +30,7 @@ services:
         hard: 1000000
 
   mtcbench:
-    image: intracom/mtcbench:proxy
+    image: intracom/mtcbench:latest
     privileged: true
     container_name: mtcbench
     hostname: mtcbench-node
