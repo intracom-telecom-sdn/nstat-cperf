@@ -15,9 +15,7 @@ CONFIG_FILENAME=`echo "$TEST_FILE" | cut -d'.' -f1`
 NSTAT_WORKSPACE=/opt/nstat
 RESULTS_DIR=$CONFIG_FILENAME"_results"
 
-TMP=${CONFIG_FILENAME#*_}
-TEST_TYPE=${TMP%}
-#TEST_TYPE=${TMP%_*}
+TEST_TYPE=$(echo $CONFIG_FILENAME | grep -oP "sb_[a-z]*_[a-z]*")
 WAIT_UNTIL_RETRY=2
 CONTAINER_IDS="nstat controller "$(echo mn-{01..16})
 
@@ -49,7 +47,7 @@ docker exec -i nstat /bin/bash -c "export PYTHONPATH=$NSTAT_WORKSPACE;source /op
 python3.4 $NSTAT_WORKSPACE/stress_test/nstat_orchestrator.py \
      --test=$TEST_TYPE \
      --ctrl-base-dir=$NSTAT_WORKSPACE/controllers/odl_beryllium_pb/ \
-     --sb-generator-base-dir=$NSTAT_WORKSPACE/emulators/multinet/ \
+     --sb-emulator-base-dir=$NSTAT_WORKSPACE/emulators/multinet/ \
      --json-config=$NSTAT_WORKSPACE/$CONFIG_FILENAME.json \
      --json-output=$NSTAT_WORKSPACE/${CONFIG_FILENAME}_results.json \
      --html-report=$NSTAT_WORKSPACE/report.html \
