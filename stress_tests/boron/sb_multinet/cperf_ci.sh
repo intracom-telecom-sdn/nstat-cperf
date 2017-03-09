@@ -14,11 +14,9 @@ TEST_FILE=$1
 CONFIG_FILENAME=`echo "$TEST_FILE" | cut -d'.' -f1`
 NSTAT_WORKSPACE=/opt/nstat
 RESULTS_DIR=$CONFIG_FILENAME"_results"
-
-TEST_TYPE=$(echo $CONFIG_FILENAME | grep -oP "sb_[a-z]*_[a-z]*")
 WAIT_UNTIL_RETRY=2
 CONTAINER_IDS="nstat controller "$(echo mn-{01..16})
-
+TEST_TYPE=$(echo $CONFIG_FILENAME | grep -oP "sb_[a-z]*_[a-z]*")
 echo '-------------------------------------------------------------------------'
 echo 'TEST TYPE      : '$TEST_TYPE
 echo 'CONFIG_FILENAME: '$CONFIG_FILENAME
@@ -28,7 +26,7 @@ docker-compose up -d
 
 for container_id in $CONTAINER_IDS
 do
-    docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE && \
+    docker exec -i $container_id /bin/bash -c "rm -rf $NSTAT_WORKSPACE; \
         cd /opt; \
         until git clone https://github.com/intracom-telecom-sdn/nstat.git -b master; do \
             echo 'Fail git clone NSTAT. Sleep for $WAIT_UNTIL_RETRY and retry'; \
